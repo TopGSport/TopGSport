@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Top G Sport</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style-contact.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">Top G Sport</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Główna</a></li>
+                <li><a href="about.html"><i class="fas fa-users"></i> O nas</a></li>
+                <li><a href="offer.html"><i class="fas fa-dumbbell"></i> Oferta</a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Zaloguj</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-hero">
+            <h1>Skontaktuj się z nami</h1>
+            <p>Masz pytania? Wypełnij formularz lub skorzystaj z danych kontaktowych poniżej.</p>
+        </section>
+        <section class="contact-section">
+            <div class="contact-info">
+                <div class="info-item animate-fadein">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefon</h3>
+                    <p>881-683-444</p>
+                </div>
+                <div class="info-item animate-fadein" style="animation-delay:0.2s;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Adres</h3>
+                    <p>ul. Błonie 4, Brzeg</p>
+                </div>
+                <div class="info-item animate-fadein" style="animation-delay:0.4s;">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>biuro@cotonfit.pl</p>
+                </div>
+            </div>
+            <form class="contact-form animate-slideup" id="contactForm">
+                <h2>Napisz do nas</h2>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Imię i nazwisko" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Twój email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Wiadomość" required></textarea>
+                </div>
+                <button type="submit" class="btn-send">Wyślij <i class="fas fa-paper-plane"></i></button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <span>Top G Sport &copy; 2025</span>
+        </div>
+    </footer>
+    <script src="/js/contact.js"></script>
+</body>
+</html>

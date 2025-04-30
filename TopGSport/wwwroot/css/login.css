@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #111;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.login-container {
+    background: #181818;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.2em;
+    color: #e63946;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    background: #222;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #e63946;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #e63946;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.switch-form a {
+    color: #e63946;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.switch-form a:hover {
+    color: #fff;
+}
+
+.msg {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#login-form, #register-form {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4caf50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Form transition animations */
+.form-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.form-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.form-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+/* HEADER + NAVIGATION */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 64px;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.1em;
+    color: #e63946;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 24px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.main-nav ul li a.active,
+.main-nav ul li a:hover {
+    background: #e63946;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(230,57,70,0.18);
+}
+
+.main-nav ul li a i {
+    font-size: 1.1em;
+}
+
+/* Burger menu (optional, for mobile) */
+.nav-toggle,
+.nav-toggle-label {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 12px 16px;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .main-nav ul li a {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .logo {
+        margin-bottom: 8px;
+    }
+    /* Burger menu styles */
+    .nav-toggle-label {
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 24px;
+        cursor: pointer;
+        z-index: 101;
+    }
+    .nav-toggle-label span,
+    .nav-toggle-label span:before,
+    .nav-toggle-label span:after {
+        display: block;
+        background: #e63946;
+        height: 4px;
+        width: 32px;
+        border-radius: 2px;
+        position: relative;
+        transition: all 0.3s;
+    }
+    .nav-toggle-label span:before,
+    .nav-toggle-label span:after {
+        content: '';
+        position: absolute;
+        left: 0;
+    }
+    .nav-toggle-label span:before {
+        top: -10px;
+    }
+    .nav-toggle-label span:after {
+        top: 10px;
+    }
+    .nav-toggle:checked ~ ul {
+        display: flex;
+    }
+    .main-nav ul {
+        display: none;
+    }
+}
+
+/* Font Awesome (якщо ще не підключено) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');

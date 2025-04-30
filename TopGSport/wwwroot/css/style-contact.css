@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Luckiest+Guy&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #111;
+    color: #fff;
+}
+
+header {
+    background: #181818;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    height: 70px;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2em;
+    color: #e63946;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 8px #000;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 8px 18px;
+    border-radius: 30px;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-nav ul li a.active,
+.main-nav ul li a:hover {
+    background: #e63946;
+    color: #fff;
+    box-shadow: 0 2px 10px #e63946aa;
+}
+
+.nav-toggle, .nav-toggle-label {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .main-nav ul {
+        flex-direction: column;
+        background: #181818;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        display: none;
+        box-shadow: 0 8px 24px #000a;
+    }
+    .main-nav ul li {
+        margin: 0;
+    }
+    .nav-toggle:checked + .nav-toggle-label + ul {
+        display: flex;
+    }
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        position: relative;
+    }
+    .nav-toggle-label span,
+    .nav-toggle-label span:before,
+    .nav-toggle-label span:after {
+        display: block;
+        background: #fff;
+        height: 4px;
+        width: 100%;
+        border-radius: 2px;
+        position: absolute;
+        transition: 0.3s;
+    }
+    .nav-toggle-label span {
+        top: 14px;
+    }
+    .nav-toggle-label span:before {
+        content: '';
+        top: -10px;
+    }
+    .nav-toggle-label span:after {
+        content: '';
+        top: 10px;
+    }
+}
+
+.contact-hero {
+    background: linear-gradient(120deg, #e63946 0%, #181818 100%);
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    box-shadow: 0 4px 24px #000a;
+    animation: fadeInDown 1s;
+}
+
+.contact-hero h1 {
+    font-size: 2.7em;
+    font-family: 'Luckiest Guy', cursive;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 12px #000;
+}
+
+.contact-hero p {
+    font-size: 1.2em;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-width: 220px;
+}
+
+.info-item {
+    background: #181818;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 2px 16px #000a;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+}
+
+.info-item:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px #e6394680;
+}
+
+.info-item i {
+    font-size: 2.2em;
+    color: #e63946;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.info-item h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 700;
+}
+
+.info-item p {
+    margin: 0;
+    color: #fff;
+    opacity: 0.85;
+    font-size: 1em;
+}
+
+.contact-form {
+    flex: 1 1 350px;
+    background: #181818;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 2px 16px #000a;
+    min-width: 320px;
+    max-width: 420px;
+    animation: slideUp 1.2s;
+}
+
+.contact-form h2 {
+    margin-top: 0;
+    color: #e63946;
+    font-size: 1.5em;
+    margin-bottom: 18px;
+    text-align: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #222;
+    color: #fff;
+    font-size: 1em;
+    margin-top: 4px;
+    transition: box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 1px 4px #0004;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: #232323;
+    box-shadow: 0 0 0 2px #e63946;
+}
+
+.contact-form textarea {
+    min-height: 90px;
+    max-height: 220px;
+}
+
+.btn-send {
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 32px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 10px #e6394680;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-send:hover {
+    background: #fff;
+    color: #e63946;
+    box-shadow: 0 4px 24px #e6394680;
+    transform: translateY(-2px) scale(1.04);
+}
+
+.form-message {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 1.1em;
+    min-height: 24px;
+}
+
+footer {
+    background: #181818;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0 18px 0;
+    font-size: 1.1em;
+    border-top: 2px solid #e63946;
+    margin-top: 60px;
+    letter-spacing: 1px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+    .contact-section {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+    .contact-info, .contact-form {
+        min-width: 0;
+        width: 100%;
+        max-width: 500px;
+    }
+    .main-nav {
+        padding: 0 10px;
+    }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Анімації для блоків */
+.animate-fadein {
+    opacity: 0;
+    animation: fadeInDown 1s forwards;
+}
+.animate-fadein:nth-child(1) { animation-delay: 0.1s;}
+.animate-fadein:nth-child(2) { animation-delay: 0.3s;}
+.animate-fadein:nth-child(3) { animation-delay: 0.5s;}
+.animate-slideup {
+    opacity: 0;
+    animation: slideUp 1.2s forwards;
+    animation-delay: 0.6s;
+}

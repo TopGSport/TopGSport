@@ -10,8 +10,7 @@ const karnety = {
             "Dostęp do siłowni w godzinach nocnych",
             "Szafka na okres treningu",
             "Dostęp do pryszniców"
-        ],
-        img: "karnet.jpg"
+        ]
     },
     kar2: {
         name: "Tygodniowy Karnet",
@@ -23,8 +22,7 @@ const karnety = {
             "7 dni pełnego dostępu",
             "Wszystkie strefy",
             "Szafka na okres treningu"
-        ],
-        img: "karnet.jpg"
+        ]
     },
     kar3: {
         name: "24/7 Karnet",
@@ -36,8 +34,7 @@ const karnety = {
             "Nielimitowany dostęp",
             "Wszystkie strefy",
             "Konsultacja z trenerem"
-        ],
-        img: "karnet.jpg"
+        ]
     },
     kar4: {
         name: "Miesięczny Karnet",
@@ -49,8 +46,7 @@ const karnety = {
             "30 dni pełnego dostępu",
             "Wszystkie strefy",
             "Szafka на okres treningu"
-        ],
-        img: "karnet.jpg"
+        ]
     },
     kar5: {
         name: "Studencki Karnet",
@@ -62,8 +58,7 @@ const karnety = {
             "Dla uczniów i studentów",
             "Wszystkie strefy",
             "Szafka на okres treningu"
-        ],
-        img: "karnet.jpg"
+        ]
     },
     kar6: {
         name: "VIP Karnet",
@@ -76,8 +71,7 @@ const karnety = {
             "Sauna",
             "Konsultacje",
             "Priorytetowa obsługa"
-        ],
-        img: "karnet.jpg"
+        ]
     },
     kar7: {
         name: "Rodzinny Karnet",
@@ -89,8 +83,7 @@ const karnety = {
             "Dla rodzin",
             "Wszystkie strefy",
             "Strefa dla dzieci"
-        ],
-        img: "karnet.jpg"
+        ]
     },
     kar8: {
         name: "Wejście Jednorazowe",
@@ -101,8 +94,7 @@ const karnety = {
         features: [
             "Jednorazowy dostęp",
             "Wszystkie strefy"
-        ],
-        img: "karnet.jpg"
+        ]
     }
 };
 

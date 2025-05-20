@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TopGSport.Database.Data;
 
@@ -11,9 +12,11 @@ using TopGSport.Database.Data;
 namespace TopGSport.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250520170132_20052025")]
+    partial class _20052025
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,7 +186,7 @@ namespace TopGSport.Migrations
                             Id = 2,
                             Category = "Clothes",
                             Img = "img123.jpg",
-                            Name = "Szorty treningowe",
+                            Name = "Szorty SStreningowe",
                             Price = 22.00m,
                             Type = "shorts"
                         },

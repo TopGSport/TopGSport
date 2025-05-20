@@ -143,16 +143,16 @@
             );
 
             modelBuilder.Entity<Shop>().HasData(
-                new Shop { Id = 1, Name = "T-shirt BossBoy", Type = "tshirt", Price = 25.00M, Img = "img123.jpg" },
-                new Shop { Id = 2, Name = "Szorty treningowe", Type = "shorts", Price = 22.00M, Img = "img123.jpg" },
-                new Shop { Id = 3, Name = "Bluza z kapturem", Type = "hoodie", Price = 40.00M, Img = "img123.jpg" },
-                new Shop { Id = 4, Name = "T-shirt Classic", Type = "tshirt", Price = 20.00M, Img = "img123.jpg" },
-                new Shop { Id = 5, Name = "Szorty Pro", Type = "shorts", Price = 28.00M, Img = "img123.jpg" },
-                new Shop { Id = 6, Name = "Kreatyna Monohydrat", Type = "creatine", Price = 18.00M, Img = "img123.jpg" },
-                new Shop { Id = 7, Name = "Białko WPC 80", Type = "protein", Price = 32.00M, Img = "img123.jpg" },
-                new Shop { Id = 8, Name = "BCAA 2:1:1", Type = "bcaa", Price = 15.00M, Img = "img123.jpg" },
-                new Shop { Id = 9, Name = "Kreatyna Jabłczan", Type = "creatine", Price = 20.00M, Img = "img123.jpg" },
-                new Shop { Id = 10, Name = "Białko Isolate", Type = "protein", Price = 38.00M, Img = "img123.jpg" }
+                new Shop { Id = 1, Name = "T-shirt BossBoy", Category = "Clothes", Type = "tshirt", Price = 25.00M, Img = "img123.jpg" },
+                new Shop { Id = 2, Name = "Szorty treningowe", Category = "Clothes", Type = "shorts", Price = 22.00M, Img = "img123.jpg" },
+                new Shop { Id = 3, Name = "Bluza z kapturem", Category = "Clothes", Type = "hoodie", Price = 40.00M, Img = "img123.jpg" },
+                new Shop { Id = 4, Name = "T-shirt Classic", Category = "Clothes", Type = "tshirt", Price = 20.00M, Img = "img123.jpg" },
+                new Shop { Id = 5, Name = "Szorty Pro", Category = "Clothes", Type = "shorts", Price = 28.00M, Img = "img123.jpg" },
+                new Shop { Id = 6, Name = "Kreatyna Monohydrat", Category = "Supplements", Type = "creatine", Price = 18.00M, Img = "img123.jpg" },
+                new Shop { Id = 7, Name = "Białko WPC 80", Category = "Supplements", Type = "protein", Price = 32.00M, Img = "img123.jpg" },
+                new Shop { Id = 8, Name = "BCAA 2:1:1", Category = "Supplements", Type = "bcaa", Price = 15.00M, Img = "img123.jpg" },
+                new Shop { Id = 9, Name = "Kreatyna Jabłczan", Category = "Supplements", Type = "creatine", Price = 20.00M, Img = "img123.jpg" },
+                new Shop { Id = 10, Name = "Białko Isolate", Category = "Supplements", Type = "protein", Price = 38.00M, Img = "img123.jpg" }
             );
         }
 

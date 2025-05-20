@@ -1,22 +1,17 @@
-﻿// Дані для одягу
-const clothes = [
-    { name: "T-shirt BossBoy", type: "tshirt", price: 25, img: "img123.jpg" },
-    { name: "Szorty treningowe", type: "shorts", price: 22, img: "img123.jpg" },
-    { name: "Bluza z kapturem", type: "hoodie", price: 40, img: "img123.jpg" },
-    { name: "T-shirt Classic", type: "tshirt", price: 20, img: "img123.jpg" },
-    { name: "Szorty Pro", type: "shorts", price: 28, img: "img123.jpg" }
-];
+﻿let allItems = [];
 
-// Дані для добавок
-const supplements = [
-    { name: "Kreatyna Monohydrat", type: "creatine", price: 18, img: "img123.jpg" },
-    { name: "Białko WPC 80", type: "protein", price: 32, img: "img123.jpg" },
-    { name: "BCAA 2:1:1", type: "bcaa", price: 15, img: "img123.jpg" },
-    { name: "Kreatyna Jabłczan", type: "creatine", price: 20, img: "img123.jpg" },
-    { name: "Białko Isolate", type: "protein", price: 38, img: "img123.jpg" }
-];
+async function fetchShopItems() {
+    try {
+        const response = await fetch('http://localhost:5017/api/shop');
+        allItems = await response.json();
+        console.log("Dane z API:", allItems);
+        renderShop();
+    } catch (error) {
+        console.error("Błąd pobierania danych:", error);
+    }
+}
 
-// Рендер товарів
+
 function renderList(list, containerId, filterType, search) {
     const container = document.getElementById(containerId);
     let filtered = list.filter(item =>
@@ -29,7 +24,7 @@ function renderList(list, containerId, filterType, search) {
     }
     container.innerHTML = filtered.map(item => `
         <div class="shop-item">
-            <img src="${item.img}" alt="${item.name}">
+            <img src="/images/${item.img}" alt="${item.name}">
             <div class="item-name">${item.name}</div>
             <div class="item-price">$${item.price}</div>
             <button class="item-btn" onclick="alert('Strona produktu wkrótce!')">Przejdź</button>
@@ -37,16 +32,22 @@ function renderList(list, containerId, filterType, search) {
     `).join('');
 }
 
-// Початковий рендер
 function renderShop() {
-    renderList(clothes, "clothes-list", document.getElementById('clothes-filter').value, document.getElementById('shop-search-input').value);
-    renderList(supplements, "supplements-list", document.getElementById('supp-filter').value, document.getElementById('shop-search-input').value);
+    const search = document.getElementById('shop-search-input').value;
+    const clothesFilter = document.getElementById('clothes-filter').value;
+    const suppFilter = document.getElementById('supp-filter').value;
+
+    const clothes = allItems.filter(item => item.category === "Clothes");
+    const supplements = allItems.filter(item => item.category === "Supplements");
+
+    renderList(clothes, "clothes-list", clothesFilter, search);
+    renderList(supplements, "supplements-list", suppFilter, search);
 }
 
-// Фільтри та пошук
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('clothes-filter').onchange = renderShop;
     document.getElementById('supp-filter').onchange = renderShop;
     document.getElementById('shop-search-input').oninput = renderShop;
-    renderShop();
+    fetchShopItems();
 });

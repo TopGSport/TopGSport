@@ -5,6 +5,7 @@ body {
     font-family: 'Montserrat', Arial, sans-serif;
     background: #111;
     color: #fff;
+    display: block;
 }
 
 header {
@@ -18,7 +19,7 @@ header {
 .main-nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;

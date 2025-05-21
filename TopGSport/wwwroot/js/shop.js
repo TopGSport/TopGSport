@@ -5,7 +5,7 @@ const clothes = [
         name: "T-shirt BossBoy",
         type: "tshirt",
         price: 25,
-        img: "/images/img123.jpg",
+        img: "/images/tshirt.jpeg",
         desc: "Wysokiej jakości bawełniany t-shirt z logo BossBoy. Idealny na trening i na co dzień."
     },
     {
@@ -13,7 +13,7 @@ const clothes = [
         name: "Szorty treningowe",
         type: "shorts",
         price: 22,
-        img: "img123.jpg",
+        img: "/images/shorty.jpeg",
         desc: "Lekkie i wygodne szorty do treningu. Szybkoschnący materiał, elastyczny pas."
     },
     {
@@ -21,7 +21,7 @@ const clothes = [
         name: "Bluza z kapturem",
         type: "hoodie",
         price: 40,
-        img: "img123.jpg",
+        img: "/images/hudi.jpg",
         desc: "Ciepła bluza z kapturem BossBoy. Miękka, przyjemna w dotyku, z dużą kieszenią."
     },
     {
@@ -29,7 +29,7 @@ const clothes = [
         name: "T-shirt Classic",
         type: "tshirt",
         price: 20,
-        img: "img123.jpg",
+        img: "/images/tshirtz.jpeg",
         desc: "Klasyczny t-shirt sportowy. Oddychający materiał, dopasowany krój."
     },
     {
@@ -37,7 +37,7 @@ const clothes = [
         name: "Szorty Pro",
         type: "shorts",
         price: 28,
-        img: "img123.jpg",
+        img: "/images/shortyz.jpeg",
         desc: "Profesjonalne szorty do intensywnych treningów. Wzmocnione szwy, nowoczesny design."
     }
 ];
@@ -48,7 +48,7 @@ const clothes = [
             name: "Kreatyna Monohydrat",
             type: "creatine",
             price: 18,
-            img: "img123.jpg",
+            img: "/images/kreatyn.jpg",
             desc: "Czysta kreatyna monohydrat. Wspiera wzrost siły i masy mięśniowej."
         },
         {
@@ -56,7 +56,7 @@ const clothes = [
             name: "Białko WPC 80",
             type: "protein",
             price: 32,
-            img: "img123.jpg",
+            img: "/images/protein.jpg",
             desc: "Wysokiej jakości koncentrat białka serwatkowego. Szybka regeneracja po treningu."
         },
         {
@@ -64,7 +64,7 @@ const clothes = [
             name: "BCAA 2:1:1",
             type: "bcaa",
             price: 15,
-            img: "img123.jpg",
+            img: "/images/bcaa.jpg",
             desc: "Aminokwasy rozgałęzione BCAA w proporcji 2:1:1. Redukują zmęczenie mięśni."
         },
         {
@@ -72,7 +72,7 @@ const clothes = [
             name: "Kreatyna Jabłczan",
             type: "creatine",
             price: 20,
-            img: "img123.jpg",
+            img: "/images/geiner.jpg",
             desc: "Kreatyna jabłczan dla lepszej przyswajalności i mniejszego zatrzymania wody."
         },
         {
@@ -80,7 +80,7 @@ const clothes = [
             name: "Białko Isolate",
             type: "protein",
             price: 38,
-            img: "img123.jpg",
+            img: "/images/kolagen.jpg",
             desc: "Izolat białka serwatkowego. Najczystsza forma białka, minimalna ilość tłuszczu."
         }
 ];

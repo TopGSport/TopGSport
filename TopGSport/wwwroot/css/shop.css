@@ -1,4 +1,6 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Luckiest+Guy&display=swap');
+
+body {
     font-family: 'Montserrat', sans-serif;
     background: #111;
     color: #fff;
@@ -7,72 +9,118 @@
 }
 
 header {
-    width: 100%;
     background: #181818;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .main-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
-    height: 64px;
+    padding: 0 30px;
+    height: 70px;
     position: relative;
 }
 
 .logo {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 2.1em;
+    font-size: 2em;
     color: #e63946;
     letter-spacing: 2px;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    white-space: nowrap;
+    text-shadow: 1px 1px 8px #000;
 }
 
 .main-nav ul {
-    display: flex;
-    align-items: center;
-    gap: 24px;
     list-style: none;
+    display: flex;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
 
-    .main-nav ul li {
+    .main-nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1em;
+        padding: 8px 18px;
+        border-radius: 30px;
+        transition: background 0.2s, color 0.2s;
         display: flex;
         align-items: center;
+        gap: 8px;
     }
 
-        .main-nav ul li a {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.05em;
+        .main-nav ul li a.active,
+        .main-nav ul li a:hover {
+            background: #e63946;
             color: #fff;
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 24px;
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-            position: relative;
+            box-shadow: 0 2px 10px #e63946aa;
         }
 
-            .main-nav ul li a.active,
-            .main-nav ul li a:hover {
-                background: #e63946;
-                color: #fff;
-                box-shadow: 0 2px 12px rgba(230,57,70,0.18);
+.nav-toggle, .nav-toggle-label {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .main-nav ul {
+        flex-direction: column;
+        background: #181818;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        display: none;
+        box-shadow: 0 8px 24px #000a;
+    }
+
+        .main-nav ul li {
+            margin: 0;
+        }
+
+    .nav-toggle:checked + .nav-toggle-label + ul {
+        display: flex;
+    }
+
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        position: relative;
+    }
+
+        .nav-toggle-label span,
+        .nav-toggle-label span:before,
+        .nav-toggle-label span:after {
+            display: block;
+            background: #fff;
+            height: 4px;
+            width: 100%;
+            border-radius: 2px;
+            position: absolute;
+            transition: 0.3s;
+        }
+
+        .nav-toggle-label span {
+            top: 14px;
+        }
+
+            .nav-toggle-label span:before {
+                content: '';
+                top: -10px;
             }
 
-            .main-nav ul li a i {
-                font-size: 1.1em;
+            .nav-toggle-label span:after {
+                content: '';
+                top: 10px;
             }
-
+}
 .shop-search {
     max-width: 700px;
     margin: 40px auto 0 auto;

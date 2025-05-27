@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TopGSport.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class @new : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,6 +49,8 @@ namespace TopGSport.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Category = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Type = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -99,7 +101,7 @@ namespace TopGSport.Migrations
                 columns: new[] { "Id", "Bonus", "Description", "Features", "Hours", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Pierwszy tydzień gratis!", "Dostęp od 22:00 do 6:00. Idealny dla nocnych marków!", "[\"Dost\\u0119p do si\\u0142owni w godzinach nocnych\",\"Szafka na okres treningu\",\"Dost\\u0119p do prysznic\\u00F3w\"]", "22:00 - 6:00", "Nocny Karnet", "59 zł / miesiąc" },
+                    { 1, "Pierwszy tydzień gratis!", "Dostęp od 22:00 do 6:00. Idealny dla nocnych marków!", "[\"Dost\\u0119p do si\\u0142owni w godzinach nocnych\",\"Szafka na okres treningu\",\"Dost\\u0119p do prysznic\\u00F3w\"]", "22:00 - 6:00", "Nocny Karnetus", "59 zł / miesiąc" },
                     { 2, "", "Pełny dostęp przez 7 dni. Świetny na start lub dla gości.", "[\"7 dni pe\\u0142nego dost\\u0119pu\",\"Wszystkie strefy\",\"Szafka na okres treningu\"]", "6:00 - 22:00", "Tygodniowy Karnet", "39 zł / tydzień" },
                     { 3, "Darmowa konsultacja z trenerem!", "Nielimitowany dostęp do siłowni przez całą dobę!", "[\"Nielimitowany dost\\u0119p\",\"Wszystkie strefy\",\"Konsultacja z trenerem\"]", "24/7", "24/7 Karnet", "99 zł / miesiąc" },
                     { 4, "", "Pełny dostęp do wszystkich stref przez 30 dni.", "[\"30 dni pe\\u0142nego dost\\u0119pu\",\"Wszystkie strefy\",\"Szafka na okres treningu\"]", "6:00 - 22:00", "Miesięczny Karnet", "89 zł / miesiąc" },
@@ -111,19 +113,19 @@ namespace TopGSport.Migrations
 
             migrationBuilder.InsertData(
                 table: "Shop",
-                columns: new[] { "Id", "Img", "Name", "Price", "Type" },
+                columns: new[] { "Id", "Category", "Img", "Name", "Price", "Type" },
                 values: new object[,]
                 {
-                    { 1, "img123.jpg", "T-shirt BossBoy", 25.00m, "tshirt" },
-                    { 2, "img123.jpg", "Szorty treningowe", 22.00m, "shorts" },
-                    { 3, "img123.jpg", "Bluza z kapturem", 40.00m, "hoodie" },
-                    { 4, "img123.jpg", "T-shirt Classic", 20.00m, "tshirt" },
-                    { 5, "img123.jpg", "Szorty Pro", 28.00m, "shorts" },
-                    { 6, "img123.jpg", "Kreatyna Monohydrat", 18.00m, "creatine" },
-                    { 7, "img123.jpg", "Białko WPC 80", 32.00m, "protein" },
-                    { 8, "img123.jpg", "BCAA 2:1:1", 15.00m, "bcaa" },
-                    { 9, "img123.jpg", "Kreatyna Jabłczan", 20.00m, "creatine" },
-                    { 10, "img123.jpg", "Białko Isolate", 38.00m, "protein" }
+                    { 1, "Clothes", "t-shirt-boss-boy.jpg", "T-shirt BossBoy", 25.00m, "tshirt" },
+                    { 2, "Clothes", "szorty_treningowe.jpg", "Szorty treningowe", 22.00m, "shorts" },
+                    { 3, "Clothes", "bluza_z_kapturem.jpg", "Bluza z kapturem", 40.00m, "hoodie" },
+                    { 4, "Clothes", "t-shirt_classic.webp", "T-shirt Classic", 20.00m, "tshirt" },
+                    { 5, "Clothes", "szorty_pro.jpg", "Szorty Pro", 28.00m, "shorts" },
+                    { 6, "Supplements", "kreatyna.jpg", "Kreatyna Monohydrat", 18.00m, "creatine" },
+                    { 7, "Supplements", "proteina.webp", "Białko WPC 80", 32.00m, "protein" },
+                    { 8, "Supplements", "bcaa.webp", "BCAA 2:1:1", 15.00m, "bcaa" },
+                    { 9, "Supplements", "kreatyn_jablczan.jpg", "Kreatyna Jabłczan", 20.00m, "creatine" },
+                    { 10, "Supplements", "bialko_isolate.webp", "Białko Isolate", 38.00m, "protein" }
                 });
 
             migrationBuilder.CreateIndex(

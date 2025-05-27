@@ -23,7 +23,7 @@
                 new Membership
                 {
                     Id = 1,
-                    Name = "Nocny Karnet",
+                    Name = "Nocny Karnetus",
                     Price = "59 zł / miesiąc",
                     Description = "Dostęp od 22:00 do 6:00. Idealny dla nocnych marków!",
                     Bonus = "Pierwszy tydzień gratis!",

@@ -250,7 +250,7 @@ function renderKarnet() {
         if (btn) {
             btn.onclick = function() {
                 const trains = parseInt(document.getElementById('trains').value) || 0;
-                let singlePrice = 15; // ціна за разове відвідування
+                let singlePrice = 15; 
                 let abonament = parseInt(kar.price) || 0;
                 let save = trains * singlePrice - abonament;
                 let msg = save > 0

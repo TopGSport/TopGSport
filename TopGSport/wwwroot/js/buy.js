@@ -1,4 +1,3 @@
-// Karnety (можеш підключити з karnet.js або дублювати тут)
 const karnety = {
     kar1: {
         name: "Nocny Karnet",
@@ -66,18 +65,15 @@ function setCurrentUser(email) {
     localStorage.setItem('currentUser', email);
 }
 
-// Якщо не залогінений — редірект
 if (!getCurrentUser()) {
     window.location.href = "login.html";
 }
 
-// Витягуємо карнет з URL
 function getKarnetFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get('kar') || 'kar1';
 }
 
-// Підтягуємо дані користувача
 function fillUserData() {
     const user = getUserByEmail(getCurrentUser());
     if (user) {
@@ -87,7 +83,6 @@ function fillUserData() {
     }
 }
 
-// Відображаємо інфу про карнет
 function renderKarnetInfo() {
     const karKey = getKarnetFromUrl();
     const kar = karnety[karKey] || karnety.kar1;
@@ -99,7 +94,6 @@ function renderKarnetInfo() {
     `;
 }
 
-// Обробка покупки
 document.getElementById('buy-form').onsubmit = function(e) {
     e.preventDefault();
     const karKey = getKarnetFromUrl();
@@ -116,7 +110,6 @@ document.getElementById('buy-form').onsubmit = function(e) {
         msg.textContent = "Wypełnij wszystkie pola!";
         return;
     }
-    // Записуємо покупку в localStorage
     const users = getUsers();
     const user = users.find(u => u.email === getCurrentUser());
     if (!user) {

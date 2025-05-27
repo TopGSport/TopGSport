@@ -14,7 +14,6 @@ function setCurrentUser(email) {
     localStorage.setItem('currentUser', email);
 }
 
-// Якщо не залогінений — редірект
 if (!getCurrentUser()) {
     window.location.href = "login.html";
 }
@@ -27,31 +26,47 @@ function renderProfile() {
         <b>Email:</b> ${user.email}<br>
         <b>Telefon:</b> ${user.phone}
     `;
-    // Історія покупок
     let history = "";
     if (user.purchases && user.purchases.length) {
         user.purchases.slice().reverse().forEach((p, i) => {
-            history += `
-                <div class="purchase-item">
-                    <b>${p.name}</b> (${p.price})<br>
-                    Data startu: ${p.startDate}<br>
-                    Opcje: 
-                        ${p.options.trener ? "Trener, " : ""}
-                        ${p.options.towel ? "Ręcznik, " : ""}
-                        ${p.options.locker ? "Szafka" : ""}
-                    <br>
-                    Numer karnetu: <b>${p.karKey.toUpperCase()}-${user.purchases.length - i}</b><br>
-                    Zakup: ${new Date(p.date).toLocaleString()}
-                </div>
-            `;
+            if (p.type === "shop") {
+                // Покупки з магазину
+                history += `
+                    <div class="purchase-item">
+                        <b>Zakupy w sklepie</b><br>
+                        <ul style="margin:6px 0 6px 18px;padding:0;">
+                            ${p.items.map(item => `
+                                <li>${item.name} <span style="color:#e63946;">x${item.qty}</span> — $${(item.price * item.qty).toFixed(2)}</li>
+                            `).join('')}
+                        </ul>
+                        <b>Adres dostawy:</b> ${p.address}<br>
+                        <b>Telefon:</b> ${p.phone}<br>
+                        <span style="font-size:0.95em;">${new Date(p.date).toLocaleString()}</span>
+                    </div>
+                `;
+            } else {
+                // Абонементи (кАрнети)
+                history += `
+                    <div class="purchase-item">
+                        <b>${p.name}</b> (${p.price})<br>
+                        ${p.startDate ? `Data startu: ${p.startDate}<br>` : ""}
+                        ${p.options ? `Opcje: 
+                            ${p.options.trener ? "Trener, " : ""}
+                            ${p.options.towel ? "Ręcznik, " : ""}
+                            ${p.options.locker ? "Szafka" : ""}
+                        <br>` : ""}
+                        ${p.karKey ? `Numer karnetu: <b>${p.karKey.toUpperCase()}-${user.purchases.length - i}</b><br>` : ""}
+                        Zakup: ${new Date(p.date).toLocaleString()}
+                    </div>
+                `;
+            }
         });
     } else {
-        history = "<i>Brak zakupionych karnetów.</i>";
+        history = "<i>Brak zakupionych produktów i karnetów.</i>";
     }
     document.getElementById('purchase-history').innerHTML = history;
 }
 
-// Редагування
 document.getElementById('edit-btn').onclick = function() {
     const user = getUserByEmail(getCurrentUser());
     document.getElementById('edit-name').value = user.name;

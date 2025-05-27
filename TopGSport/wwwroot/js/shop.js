@@ -23,12 +23,11 @@ function renderList(list, containerId, filterType, search) {
         return;
     }
     container.innerHTML = filtered.map(item => `
-        <div class="shop-item">
+        <div class="shop-item">ф
             <img src="/images/${item.img}" alt="${item.name}">
             <div class="item-name">${item.name}</div>
             <div class="item-price">$${item.price}</div>
-            <button class="item-btn" onclick="alert('Strona produktu wkrótce!')">Przejdź</button>
-        </div>
+<a class="item-btn" href="product.html?id=${item.id}">Przejdź</a>        </div>
     `).join('');
 }
 

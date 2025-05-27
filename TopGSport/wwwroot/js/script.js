@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (entry.isIntersecting) {
                 const index = Array.from(testimonials).indexOf(entry.target);
                 entry.target.style.opacity = 1; // Показати елемент
-                entry.target.style.transform = 'translateY(0)'; // Скинути зсув
+                entry.target.style.transform = 'translateY(0)'; 
                 if (index % 2 === 0) {
                     entry.target.classList.add('left');
                 } else {
                     entry.target.classList.add('right');
                 }
-                observer.unobserve(entry.target); // Припинити спостереження
+                observer.unobserve(entry.target); 
             }
         });
     }, options);

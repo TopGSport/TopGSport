@@ -1,0 +1,227 @@
+﻿.product-card {
+    display: flex;
+    gap: 40px;
+    background: #222;
+    border-radius: 18px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.18);
+    padding: 32px;
+    max-width: 700px;
+    margin: 40px auto;
+    align-items: center;
+}
+
+.product-img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #181818;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-price {
+    color: #e63946;
+    font-weight: 700;
+    font-size: 1.3em;
+    margin-bottom: 18px;
+}
+
+.product-desc {
+    margin-bottom: 24px;
+}
+
+.item-btn {
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 28px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+    .item-btn:hover {
+        background: #fff;
+        color: #e63946;
+    }
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    margin-left: 24px;
+    font-size: 1.5em;
+    color: #fff;
+    transition: color 0.2s;
+}
+
+    .cart-icon:hover {
+        color: #e63946;
+    }
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: #e63946;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* Side cart styles */
+#side-cart {
+    position: fixed;
+    top: 0;
+    right: -370px;
+    width: 340px;
+    height: 100vh;
+    background: #232323;
+    color: #fff;
+    box-shadow: -2px 0 24px #000a;
+    z-index: 1000;
+    transition: right 0.35s cubic-bezier(.77,0,.18,1);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+    #side-cart.open {
+        right: 0;
+    }
+
+#side-cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: #181818;
+}
+
+#side-cart-close {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #e63946;
+    transition: color 0.2s;
+}
+
+    #side-cart-close:hover {
+        color: #fff;
+    }
+
+#side-cart-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 22px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 12px;
+    background: #181818;
+    border-radius: 10px;
+    padding: 10px 8px;
+}
+
+.cart-item-img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #111;
+}
+
+.cart-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+    .cart-item-qty button {
+        background: #e63946;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+        .cart-item-qty button:hover {
+            background: #fff;
+            color: #e63946;
+        }
+
+    .cart-item-qty span {
+        min-width: 22px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+.cart-item-remove {
+    color: #e63946;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 10px;
+    transition: color 0.2s;
+}
+
+    .cart-item-remove:hover {
+        color: #fff;
+    }
+
+#side-cart-footer {
+    padding: 18px 22px;
+    border-top: 1px solid #333;
+    background: #181818;
+}
+
+#side-cart-total {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+#side-cart-checkout {
+    width: 100%;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+    #side-cart-checkout:hover {
+        background: #fff;
+        color: #e63946;
+    }

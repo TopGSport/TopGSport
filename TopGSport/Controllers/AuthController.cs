@@ -41,7 +41,7 @@ namespace TopGSport.Controllers
                 Email = request.Email,
                 Phone = request.Phone,
                 Password = request.Password, // W produkcji: hashuj hasło
-                MembershipId = null, // Nie ustawiamy karnetu przy rejestracji
+                MembershipId = null, 
                 MembershipStartDate = null,
                 Options = null,
                 MembershipPurchaseDate = null

@@ -12,7 +12,7 @@ using TopGSport.Database.Data;
 namespace TopGSport.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250527204250_new")]
+    [Migration("20250528081246_new")]
     partial class @new
     {
         /// <inheritdoc />
@@ -65,7 +65,7 @@ namespace TopGSport.Migrations
                             Description = "Dostęp od 22:00 do 6:00. Idealny dla nocnych marków!",
                             Features = "[\"Dost\\u0119p do si\\u0142owni w godzinach nocnych\",\"Szafka na okres treningu\",\"Dost\\u0119p do prysznic\\u00F3w\"]",
                             Hours = "22:00 - 6:00",
-                            Name = "Nocny Karnetus",
+                            Name = "Nocny Karnet",
                             Price = "59 zł / miesiąc"
                         },
                         new
@@ -271,9 +271,6 @@ namespace TopGSport.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .IsRequired()

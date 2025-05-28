@@ -76,7 +76,6 @@ namespace TopGSport.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Phone = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    BirthDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     Password = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     MembershipId = table.Column<int>(type: "int", nullable: true),
@@ -101,7 +100,7 @@ namespace TopGSport.Migrations
                 columns: new[] { "Id", "Bonus", "Description", "Features", "Hours", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Pierwszy tydzień gratis!", "Dostęp od 22:00 do 6:00. Idealny dla nocnych marków!", "[\"Dost\\u0119p do si\\u0142owni w godzinach nocnych\",\"Szafka na okres treningu\",\"Dost\\u0119p do prysznic\\u00F3w\"]", "22:00 - 6:00", "Nocny Karnetus", "59 zł / miesiąc" },
+                    { 1, "Pierwszy tydzień gratis!", "Dostęp od 22:00 do 6:00. Idealny dla nocnych marków!", "[\"Dost\\u0119p do si\\u0142owni w godzinach nocnych\",\"Szafka na okres treningu\",\"Dost\\u0119p do prysznic\\u00F3w\"]", "22:00 - 6:00", "Nocny Karnet", "59 zł / miesiąc" },
                     { 2, "", "Pełny dostęp przez 7 dni. Świetny na start lub dla gości.", "[\"7 dni pe\\u0142nego dost\\u0119pu\",\"Wszystkie strefy\",\"Szafka na okres treningu\"]", "6:00 - 22:00", "Tygodniowy Karnet", "39 zł / tydzień" },
                     { 3, "Darmowa konsultacja z trenerem!", "Nielimitowany dostęp do siłowni przez całą dobę!", "[\"Nielimitowany dost\\u0119p\",\"Wszystkie strefy\",\"Konsultacja z trenerem\"]", "24/7", "24/7 Karnet", "99 zł / miesiąc" },
                     { 4, "", "Pełny dostęp do wszystkich stref przez 30 dni.", "[\"30 dni pe\\u0142nego dost\\u0119pu\",\"Wszystkie strefy\",\"Szafka na okres treningu\"]", "6:00 - 22:00", "Miesięczny Karnet", "89 zł / miesiąc" },

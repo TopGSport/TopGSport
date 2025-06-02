@@ -1,4 +1,3 @@
-// Надійна робота з localStorage
 function getUsers() {
     const data = localStorage.getItem('users');
     try {
@@ -25,7 +24,7 @@ function getUserByEmail(email) {
     return getUsers().find(u => u.email === email);
 }
 
-// Анімації для форм
+
 function showLoginForm() {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
@@ -52,7 +51,6 @@ function showRegisterForm() {
     }, 300);
 }
 
-// Повідомлення про успіх
 function showSuccessMessage(message) {
     const successMsg = document.createElement('div');
     successMsg.className = 'success-message';
@@ -67,7 +65,6 @@ function showSuccessMessage(message) {
     }, 2000);
 }
 
-// Перемикання форм
 document.getElementById('show-register').onclick = function(e) {
     e.preventDefault();
     showRegisterForm();
@@ -78,7 +75,6 @@ document.getElementById('show-login').onclick = function(e) {
     showLoginForm();
 };
 
-// Реєстрація
 document.getElementById('register-btn').onclick = function() {
     const name = document.getElementById('reg-name').value.trim();
     const email = document.getElementById('reg-email').value.trim().toLowerCase();
@@ -105,21 +101,17 @@ document.getElementById('register-btn').onclick = function() {
     msg.style.color = "#4caf50";
     msg.textContent = "Rejestracja udana! Zaloguj się.";
 
-    // Очищення полів
     document.getElementById('reg-name').value = '';
     document.getElementById('reg-phone').value = '';
     document.getElementById('reg-password').value = '';
 
-    // Автозаповнення email для логіну
     document.getElementById('login-email').value = email;
 
-    // Перехід на форму логіну через 1.5 сек
     setTimeout(() => {
         showLoginForm();
     }, 1500);
 };
 
-// Логін
 document.getElementById('login-btn').onclick = function() {
     const email = document.getElementById('login-email').value.trim().toLowerCase();
     const password = document.getElementById('login-password').value;
@@ -149,7 +141,6 @@ document.getElementById('login-btn').onclick = function() {
     }, 2000);
 };
 
-// Додаємо плавність формам
 document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.textContent = `
@@ -159,3 +150,168 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+const translations = {
+    pl: {
+        home: "Główna",
+        about: "O nas",
+        shop: "Sklep",
+        offer: "Oferta",
+        contact: "Kontakt",
+        login: "Zaloguj",
+        profile: "Profil",
+
+        login_title: "Zaloguj się",
+        login_btn: "Zaloguj się",
+        register_link: "Zarejestruj się",
+        no_account: "Nie masz konta?",
+        have_account: "Masz już konto?",
+        login_link: "Zaloguj się",
+        register_title: "Rejestracja",
+        register_btn: "Zarejestruj się",
+        form_name: "Imię i nazwisko",
+        form_email: "Email",
+        form_phone: "Telefon",
+        form_password: "Hasło",
+        login_success: "Zalogowano pomyślnie!",
+        register_success: "Rejestracja udana! Przekierowuję do logowania...",
+        fill_all: "Wypełnij wszystkie pola!",
+        user_exists: "Użytkownik już istnieje!",
+        wrong_data: "Nieprawidłowy email lub hasło!"
+    },
+    en: {
+        home: "Home",
+        about: "About us",
+        shop: "Shop",
+        offer: "Offer",
+        contact: "Contact",
+        login: "Login",
+        profile: "Profile",
+
+        login_title: "Login",
+        login_btn: "Login",
+        register_link: "Register",
+        no_account: "Don't have an account?",
+        have_account: "Already have an account?",
+        login_link: "Login",
+        register_title: "Register",
+        register_btn: "Register",
+        form_name: "Full name",
+        form_email: "Email",
+        form_phone: "Phone",
+        form_password: "Password",
+        login_success: "Logged in successfully!",
+        register_success: "Registration successful! Redirecting to login...",
+        fill_all: "Please fill in all fields!",
+        user_exists: "User already exists!",
+        wrong_data: "Wrong email or password!"
+    }
+};
+
+function getLang() {
+    return localStorage.getItem('lang') || 'pl';
+}
+function setLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.placeholder = t[key];
+    });
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = getLang();
+    const switcher = document.getElementById('lang-switcher');
+    if (switcher) switcher.value = lang;
+    setLanguage(lang);
+    if (switcher) {
+        switcher.addEventListener('change', function () {
+            setLanguage(this.value);
+        });
+    }
+});
+
+function getUsers() {
+    try {
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        return Array.isArray(users) ? users : [];
+    } catch (e) {
+        return [];
+    }
+}
+function setUsers(users) {
+    localStorage.setItem('users', JSON.stringify(users));
+}
+function setCurrentUser(email) {
+    localStorage.setItem('currentUser', email);
+}
+
+document.getElementById('show-register').onclick = function (e) {
+    e.preventDefault();
+    document.getElementById('login-form').style.display = "none";
+    document.getElementById('register-form').style.display = "block";
+};
+document.getElementById('show-login').onclick = function (e) {
+    e.preventDefault();
+    document.getElementById('register-form').style.display = "none";
+    document.getElementById('login-form').style.display = "block";
+};
+
+document.getElementById('register-btn').onclick = function () {
+    const lang = getLang();
+    const t = translations[lang];
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const phone = document.getElementById('reg-phone').value.trim();
+    const password = document.getElementById('reg-password').value.trim();
+    const msg = document.getElementById('register-msg');
+    if (!name || !email || !phone || !password) {
+        msg.style.color = "#e63946";
+        msg.textContent = t.fill_all;
+        return;
+    }
+    let users = getUsers();
+    if (users.find(u => u.email === email)) {
+        msg.style.color = "#e63946";
+        msg.textContent = t.user_exists;
+        return;
+    }
+    users.push({ name, email, phone, password, purchases: [] });
+    setUsers(users);
+    msg.style.color = "#4caf50";
+    msg.textContent = t.register_success;
+    setTimeout(() => {
+        document.getElementById('register-form').style.display = "none";
+        document.getElementById('login-form').style.display = "block";
+    }, 1200);
+};
+
+document.getElementById('login-btn').onclick = function () {
+    const lang = getLang();
+    const t = translations[lang];
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value.trim();
+    const msg = document.getElementById('login-msg');
+    if (!email || !password) {
+        msg.style.color = "#e63946";
+        msg.textContent = t.fill_all;
+        return;
+    }
+    let users = getUsers();
+    let user = users.find(u => u.email === email && u.password === password);
+    if (!user) {
+        msg.style.color = "#e63946";
+        msg.textContent = t.wrong_data;
+        return;
+    }
+    setCurrentUser(email);
+    msg.style.color = "#4caf50";
+    msg.textContent = t.login_success;
+    document.getElementById('success-message').style.display = "block";
+    setTimeout(() => {
+        window.location.href = "profile.html";
+    }, 1200);
+};

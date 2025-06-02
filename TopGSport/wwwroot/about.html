@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O nas | Top G Sport</title>
+    <title data-i18n="title">O nas | Top G Sport</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/style-about.css">
 </head>
@@ -16,27 +16,34 @@
                 <span></span>
             </label>
             <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i> Główna</a></li>
-                <li><a href="about.html" class="active"><i class="fas fa-users"></i> O nas</a></li>
-                <li><a href="shop.html"><i class="fas fa-users"></i> Shop</a></li>
-                <li><a href="offer.html"><i class="fas fa-dumbbell"></i> Oferta</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-                <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Zaloguj</a></li>
-                <li><a href="profile.html"><i class="fas fa-user"></i> Profil</a></li>
+                <li><a href="index.html" data-i18n="home"><i class="fas fa-home"></i> Główna</a></li>
+                <li><a href="about.html" class="active" data-i18n="about"><i class="fas fa-users"></i> O nas</a></li>
+                <li><a href="shop.html" data-i18n="shop"><i class="fas fa-users"></i> Sklep</a></li>
+                <li><a href="offer.html" data-i18n="offer"><i class="fas fa-dumbbell"></i> Oferta</a></li>
+                <li><a href="contact.html" data-i18n="contact"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                <li><a href="login.html" data-i18n="login"><i class="fas fa-sign-in-alt"></i> Zaloguj</a></li>
+                <li><a href="profile.html" data-i18n="profile"><i class="fas fa-user"></i> Profil</a></li>
             </ul>
+            <div class="lang-switcher">
+                <span style="font-size:1.2em;margin-right:6px;">🌐</span>
+                <select id="lang-switcher">
+                    <option value="pl">PL</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
         </nav>
     </header>
     <main>
         <section class="about-hero">
-            <h1 class="animate-fadein">Najlepsza Siłownia w Mieście</h1>
-            <p class="animate-fadein" style="animation-delay:0.2s;">
-                Top G Sport to nie tylko siłownia – to społeczność ludzi z pasją!  
+            <h1 class="animate-fadein" data-i18n="about_hero_title">Najlepsza Siłownia w Mieście</h1>
+            <p class="animate-fadein" style="animation-delay:0.2s;" data-i18n="about_hero_desc">
+                Top G Sport to nie tylko siłownia – to społeczność ludzi z pasją!
                 U nas znajdziesz nowoczesny sprzęt, profesjonalnych trenerów i motywującą atmosferę.<br>
                 Dołącz do nas i przekonaj się, dlaczego jesteśmy najlepsi!
             </p>
         </section>
         <section class="about-gallery">
-            <div class="gallery-title animate-slideup">Nasza Siłownia w Obiektywie</div>
+            <div class="gallery-title animate-slideup" data-i18n="gallery_title">Nasza Siłownia w Obiektywie</div>
             <div class="gallery-grid">
                 <div class="gallery-item animate-zoom"><img src="/images/americanzal.jpg" alt="Siłownia 1"></div>
                 <div class="gallery-item animate-zoom" style="animation-delay:0.15s;"><img src="/images/babzal.jpg" alt="Siłownia 2"></div>
@@ -45,29 +52,29 @@
             </div>
         </section>
         <section class="about-team">
-            <h2 class="animate-fadein">Poznaj nasz zespół</h2>
+            <h2 class="animate-fadein" data-i18n="team_title">Poznaj nasz zespół</h2>
             <div class="team-grid">
                 <div class="team-member animate-slideup">
                     <img src="/images/2024.12.29 20-41-47.jpg" alt="Trener 1">
-                    <h3>Anna Nowak</h3>
-                    <p>Trener personalny</p>
+                    <h3 data-i18n="team1_name">Anna Nowak</h3>
+                    <p data-i18n="team1_role">Trener personalny</p>
                 </div>
                 <div class="team-member animate-slideup" style="animation-delay:0.2s;">
                     <img src="/images/img123.jpg" alt="Trener 2">
-                    <h3>Jan Kowalski</h3>
-                    <p>Instruktor fitness</p>
+                    <h3 data-i18n="team2_name">Jan Kowalski</h3>
+                    <p data-i18n="team2_role">Instruktor fitness</p>
                 </div>
                 <div class="team-member animate-slideup" style="animation-delay:0.4s;">
                     <img src="/images/ronaldo.jpg" alt="Trener 3">
-                    <h3>Kasia Wiśniewska</h3>
-                    <p>Dietetyk</p>
+                    <h3 data-i18n="team3_name">Kasia Wiśniewska</h3>
+                    <p data-i18n="team3_role">Dietetyk</p>
                 </div>
             </div>
         </section>
     </main>
     <footer>
         <div class="footer-content">
-            <span>Top G Sport &copy; 2025</span>
+            <span data-i18n="footer_copyright">Top G Sport &copy; 2025</span>
         </div>
     </footer>
     <script src="/js/about.js"></script>

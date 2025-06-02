@@ -16,181 +16,189 @@
                 <span></span>
             </label>
             <ul>
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Główna</a></li>
-                <li><a href="about.html"><i class="fas fa-users"></i> O nas</a></li>
-                <li><a href="shop.html"><i class="fas fa-users"></i> Shop</a></li>
-                <li><a href="offer.html"><i class="fas fa-dumbbell"></i> Oferta</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-                <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Zaloguj</a></li>
-                <li><a href="profile.html"><i class="fas fa-user"></i> Profil</a></li>
+                <li><a href="index.html" class="active" data-i18n="home"><i class="fas fa-home"></i> Główna</a></li>
+                <li><a href="about.html" data-i18n="about"><i class="fas fa-users"></i> O nas</a></li>
+                <li><a href="shop.html" data-i18n="shop"><i class="fas fa-users"></i> Sklep</a></li>
+                <li><a href="offer.html" data-i18n="offer"><i class="fas fa-dumbbell"></i> Oferta</a></li>
+                <li><a href="contact.html" data-i18n="contact"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                <li><a href="login.html" data-i18n="login"><i class="fas fa-sign-in-alt"></i> Zaloguj</a></li>
+                <li><a href="profile.html" data-i18n="profile"><i class="fas fa-user"></i> Profil</a></li>
             </ul>
+            <div class="lang-switcher">
+                <span style="font-size:1.2em;margin-right:6px;">🌐</span>
+                <select id="lang-switcher">
+                    <option value="pl">PL</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
         </nav>
     </header>
     <main>
         <section class="hero">
             <img src="/images/kacz.jpeg" alt="Trening">
             <div class="hero-text">
-                <h2>OTRZYMAJ BEZPŁATNY TRENING PERSONALNY</h2>
+                <h2 data-i18n="hero_title">OTRZYMAJ BEZPŁATNY TRENING PERSONALNY</h2>
             </div>
         </section>
         <section class="offer">
-            <h2>NASZA OFERTA</h2>
+            <h2 data-i18n="offer_title">NASZA OFERTA</h2>
             <div class="offer-container">
                 <div class="offer-item">
-                    <h3>FITNESS</h3>
-                    <p>Kompleks sportowy Coton Fit&Beauty posiada w swojej ofercie wachlarz usług stworzonych dla potrzeb wymarzonego wyglądu, sylwetki oraz zdrowia.</p>
+                    <h3 data-i18n="fitness">FITNESS</h3>
+                    <p data-i18n="fitness_desc">Kompleks sportowy Coton Fit&Beauty posiada w swojej ofercie wachlarz usług stworzonych dla potrzeb wymarzonego wyglądu, sylwetki oraz zdrowia.</p>
                 </div>
                 <div class="offer-item">
-                    <h3>BEAUTY</h3>
-                    <p>Klub jest wyposażony w ogromną ilość sprzętu siłowego oraz funkcjonalnego. W zakres usług wchodzi profesjonalne doradztwo oraz prowadzenie w zakresie żywienia oraz treningów.</p>
+                    <h3 data-i18n="beauty">BEAUTY</h3>
+                    <p data-i18n="beauty_desc">Klub jest wyposażony w ogromną ilość sprzętu siłowego oraz funkcjonalnego. W zakres usług wchodzi profesjonalne doradztwo oraz prowadzenie w zakresie żywienia oraz treningów.</p>
                 </div>
             </div>
         </section>
         <section class="stats">
-            <h2>COTON FIT & BEAUTY W LICZBACH</h2>
+            <h2 data-i18n="stats_title">COTON FIT & BEAUTY W LICZBACH</h2>
             <div class="stats-container">
                 <div class="stat-item">
                     <h3>2 393</h3>
-                    <p>klientów</p>
+                    <p data-i18n="stat_clients">klientów</p>
                 </div>
                 <div class="stat-item">
                     <h3>200</h3>
-                    <p>m²</p>
+                    <p data-i18n="stat_area">m²</p>
                 </div>
                 <div class="stat-item">
                     <h3>12</h3>
-                    <p>instruktorów</p>
+                    <p data-i18n="stat_instructors">instruktorów</p>
                 </div>
                 <div class="stat-item">
                     <h3>7</h3>
-                    <p>dni w tygodniu</p>
+                    <p data-i18n="stat_days">dni w tygodniu</p>
                 </div>
             </div>
         </section>
         <section class="news">
-            <h2>AKTUALNOŚCI</h2>
+            <h2 data-i18n="news_title">AKTUALNOŚCI</h2>
             <div class="news-container">
                 <div class="news-item">
                     <div class="news-background" style="background-image: url('/images/wielk.jpg');">
-                        <h3>Wesołych Świąt Wielkanocnych!</h3>
-                        <p>Wesołego Alleluja! Kolorowych pisanek, mokrego dyngusa, pysznego mazurka i rodzinnej atmosfery!</p>
-                        <a href="#" class="btn">Więcej</a>
+                        <h3 data-i18n="news1_title">Wesołych Świąt Wielkanocnych!</h3>
+                        <p data-i18n="news1_desc">Wesołego Alleluja! Kolorowych pisanek, mokrego dyngusa, pysznego mazurka i rodzinnej atmosfery!</p>
+                        <a href="#" class="btn" data-i18n="more">Więcej</a>
                     </div>
                 </div>
                 <div class="news-item">
                     <div class="news-background" style="background-image: url('/images/sauna.jpg');">
-                        <h3>Renowacja sauny 17-18 kwietnia</h3>
-                        <p>Widzimy się w sobotę!</p>
-                        <a href="#" class="btn">Więcej</a>
+                        <h3 data-i18n="news2_title">Renowacja sauny 17-18 kwietnia</h3>
+                        <p data-i18n="news2_desc">Widzimy się w sobotę!</p>
+                        <a href="#" class="btn" data-i18n="more">Więcej</a>
                     </div>
                 </div>
                 <div class="news-item">
                     <div class="news-background" style="background-image: url('/images/sigma.jpg');">
-                        <h3>100 DNI DO LATA – ZACZNIJ TERAZ!</h3>
-                        <p>Latо coraz bliżej! Czy jesteś gotowy, by powitać je w świetnej formie? Teraz masz najlepsze okazje!</p>
-                        <a href="#" class="btn">Więcej</a>
+                        <h3 data-i18n="news3_title">100 DNI DO LATA – ZACZNIJ TERAZ!</h3>
+                        <p data-i18n="news3_desc">Latо coraz bliżej! Czy jesteś gotowy, by powitać je w świetnej formie? Teraz masz najlepsze okazje!</p>
+                        <a href="#" class="btn" data-i18n="more">Więcej</a>
                     </div>
                 </div>
                 <div class="news-item">
                     <div class="news-background" style="background-image: url('/images/saunaa.jpg');">
-                        <h3>Ceremonia saunowa</h3>
-                        <p>WIECZÓR SAUNOWY – 21 MARCA 2025. Zapraszamy na wyjątkowy Wieczór Saunowy w Coton Fit&Beauty!</p>
-                        <a href="#" class="btn">Więcej</a>
+                        <h3 data-i18n="news4_title">Ceremonia saunowa</h3>
+                        <p data-i18n="news4_desc">WIECZÓR SAUNOWY – 21 MARCA 2025. Zapraszamy na wyjątkowy Wieczór Saunowy w Coton Fit&Beauty!</p>
+                        <a href="#" class="btn" data-i18n="more">Więcej</a>
                     </div>
                 </div>
             </div>
         </section>
         <section class="testimonials">
-            <h2>MÓWIĄ O NAS</h2>
+            <h2 data-i18n="testimonials_title">MÓWIĄ O NAS</h2>
             <div class="testimonial-container">
                 <div class="testimonial-item">
                     <blockquote>
-                        <p>Fajny klub. To był wypadek drogowy, a klub zrobił na mnie bardzo pozytywne wrażenie. Pani w recepcji jest bardzo kompetentna i pomocna. Sprzęt jest rozsądnie rozmieszczony.</p>
+                        <p data-i18n="testimonial1">Fajny klub. To był wypadek drogowy, a klub zrobił на mnie bardzo pozytywne wrażenie. Pani w recepcji jest bardzo kompetentna i pomocna. Sprzęt jest rozsądnie rozmieszczony.</p>
                     </blockquote>
-                    <p class="author">Andrij, 20 maja 2021</p>
+                    <p class="author" data-i18n="testimonial1_author">Andrij, 20 maja 2021</p>
                 </div>
                 <div class="testimonial-item">
                     <blockquote>
-                        <p>Gorąco polecam Cotona, mam przyjemność ćwiczyć w ogromnej sali z lustrami, gdzie jest dużo miejsca i można spokojnie tańczyć.</p>
+                        <p data-i18n="testimonial2">Gorąco polecam Cotona, mam przyjemność ćwiczyć w ogromnej sali z lustrami, gdzie jest dużo miejsca i można spokojnie tańczyć.</p>
                     </blockquote>
-                    <p class="author">Ewa, 7 marca 2020</p>
+                    <p class="author" data-i18n="testimonial2_author">Ewa, 7 marca 2020</p>
                 </div>
             </div>
         </section>
         <section class="stats-final">
             <div class="stats-final-bg"></div>
             <div class="stats-final-content">
-              <div class="stats-final-title">
-                <span style="color:#e63946;">_</span>COTON<br>
-                FIT &amp; BEAUTY<br>
-                W LICZBACH
-              </div>
-              <div class="stats-final-grid">
-                <div class="stats-final-item">
-                  <i class="fas fa-users"></i>
-                  <div class="stats-final-number">2 393</div>
-                  <div class="stats-final-label">klientów</div>
+                <div class="stats-final-title">
+                    <span style="color:#e63946;">_</span><span data-i18n="stats_final_title1">COTON</span><br>
+                    <span data-i18n="stats_final_title2">FIT &amp; BEAUTY</span><br>
+                    <span data-i18n="stats_final_title3">W LICZBACH</span>
                 </div>
-                <div class="stats-final-item">
-                  <i class="fas fa-home"></i>
-                  <div class="stats-final-number">200</div>
-                  <div class="stats-final-label">m<sup>2</sup> powierzchni</div>
+                <div class="stats-final-grid">
+                    <div class="stats-final-item">
+                        <i class="fas fa-users"></i>
+                        <div class="stats-final-number">2 393</div>
+                        <div class="stats-final-label" data-i18n="stat_clients">klientów</div>
+                    </div>
+                    <div class="stats-final-item">
+                        <i class="fas fa-home"></i>
+                        <div class="stats-final-number">200</div>
+                        <div class="stats-final-label" data-i18n="stat_area">m<sup>2</sup> powierzchni</div>
+                    </div>
+                    <div class="stats-final-item">
+                        <i class="fas fa-medal"></i>
+                        <div class="stats-final-number">12</div>
+                        <div class="stats-final-label" data-i18n="stat_instructors">instruktorów</div>
+                    </div>
+                    <div class="stats-final-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="stats-final-number">7</div>
+                        <div class="stats-final-label" data-i18n="stat_days">dni w tygodniu</div>
+                    </div>
                 </div>
-                <div class="stats-final-item">
-                  <i class="fas fa-medal"></i>
-                  <div class="stats-final-number">12</div>
-                  <div class="stats-final-label">instruktorów</div>
-                </div>
-                <div class="stats-final-item">
-                  <i class="fas fa-calendar-alt"></i>
-                  <div class="stats-final-number">7</div>
-                  <div class="stats-final-label">dni w tygodniu</div>
-                </div>
-              </div>
             </div>
-          </section>
+        </section>
     </main>
     <footer class="custom-footer">
         <div class="footer-container">
-          <div class="footer-logo">
-            Top G Sport
-          </div>
-          <div class="footer-block">
-            <div class="footer-title">KONTAKT</div>
-            <div class="footer-contact">
-              <div><i class="fas fa-phone"></i> 881-683-444</div>
-              <div><i class="fas fa-map-marker-alt"></i> ul. Błonie 4, Brzeg</div>
-              <div><i class="fas fa-envelope"></i> biuro@cotonfit.pl</div>
+            <div class="footer-logo">
+                Top G Sport
             </div>
-          </div>
-          <div class="footer-block">
-            <div class="footer-title">GODZINY<br><span class="footer-title-bold">OTWARCIA</span></div>
-            <div class="footer-hours">
-              <div>poniedziałek - piątek:<br>
-                <span class="footer-red">6<sup>00</sup> - 22<sup>00</sup></span>
-              </div>
-              <div>sobota / niedziela:<br>
-                <span class="footer-red">8<sup>00</sup> - 16<sup>00</sup></span>
-              </div>
+            <div class="footer-block">
+                <div class="footer-title" data-i18n="contact_footer">KONTAKT</div>
+                <div class="footer-contact">
+                    <div><i class="fas fa-phone"></i> 881-683-444</div>
+                    <div><i class="fas fa-map-marker-alt"></i> ul. Błonie 4, Brzeg</div>
+                    <div><i class="fas fa-envelope"></i> biuro@cotonfit.pl</div>
+                </div>
             </div>
-          </div>
-          <div class="footer-block">
-            <div class="footer-title">MENU STRONY</div>
-            <div class="footer-menu">
-              <ul>
-                <li>Aktualności</li>
-                <li>Grafik</li>
-                <li>Zajęcia grupowe</li>
-                <li>EMS</li>
-                <li>Regulamin</li>
-                <li>Dokumenty</li>
-                <li>Activ SPA Infrared</li>
-              </ul>
+            <div class="footer-block">
+                <div class="footer-title" data-i18n="hours_footer">GODZINY<br><span class="footer-title-bold" data-i18n="open_footer">OTWARCIA</span></div>
+                <div class="footer-hours">
+                    <div data-i18n="footer_weekdays">
+                        poniedziałek - piątek:<br>
+                        <span class="footer-red">6<sup>00</sup> - 22<sup>00</sup></span>
+                    </div>
+                    <div data-i18n="footer_weekend">
+                        sobota / niedziela:<br>
+                        <span class="footer-red">8<sup>00</sup> - 16<sup>00</sup></span>
+                    </div>
+                </div>
             </div>
-          </div>
-
+            <div class="footer-block">
+                <div class="footer-title" data-i18n="menu_footer">MENU STRONY</div>
+                <div class="footer-menu">
+                    <ul>
+                        <li data-i18n="footer_news">Aktualności</li>
+                        <li data-i18n="footer_schedule">Grafik</li>
+                        <li data-i18n="footer_classes">Zajęcia grupowe</li>
+                        <li data-i18n="footer_ems">EMS</li>
+                        <li data-i18n="footer_rules">Regulamin</li>
+                        <li data-i18n="footer_docs">Dokumenty</li>
+                        <li data-i18n="footer_spa">Activ SPA Infrared</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </footer>
+    </footer>
     <script src="/js/script.js"></script>
 </body>
 </html>

@@ -1,33 +1,114 @@
-﻿let allItems = [];
+﻿const translations = {
+    pl: {
+        title: "Sklep | Top G Sport",
+        home: "Główna",
+        about: "O nas",
+        shop: "Sklep",
+        offer: "Oferta",
+        contact: "Kontakt",
+        login: "Zaloguj",
+        profile: "Profil",
+        clothes_title: "Odzież",
+        supplements_title: "Suplementy",
+        search_placeholder: "Szukaj produktu...",
+        go_btn: "Przejdź",
+        no_results: "Brak wyników.",
+        footer: "Top G Sport &copy; 2025"
+    },
+    en: {
+        title: "Shop | Top G Sport",
+        home: "Home",
+        about: "About us",
+        shop: "Shop",
+        offer: "Offer",
+        contact: "Contact",
+        login: "Login",
+        profile: "Profile",
+        clothes_title: "Clothes",
+        supplements_title: "Supplements",
+        search_placeholder: "Search product...",
+        go_btn: "Go to",
+        no_results: "No results.",
+        footer: "Top G Sport &copy; 2025"
+    }
+};
+
+function getLang() {
+    return localStorage.getItem('lang') || 'pl';
+}
+
+function setLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    const t = translations[lang];
+
+    // Title
+    document.title = t.title;
+
+    // Menu
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            // Якщо <a> з іконкою, змінюй тільки текст після іконки
+            if (el.tagName === "A" && el.querySelector("i")) {
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === 3) node.textContent = " " + t[key];
+                });
+            } else {
+                el.innerHTML = t[key];
+            }
+        }
+    });
+
+    // Плейсхолдер пошуку
+    const searchInput = document.getElementById('shop-search-input');
+    if (searchInput) searchInput.placeholder = t.search_placeholder;
+
+    // Категорії
+    const clothesTitle = document.querySelector('[data-i18n-section="clothes_title"]');
+    if (clothesTitle) clothesTitle.innerHTML = t.clothes_title;
+    const suppTitle = document.querySelector('[data-i18n-section="supplements_title"]');
+    if (suppTitle) suppTitle.innerHTML = t.supplements_title;
+
+    // Футер
+    const footer = document.querySelector('[data-i18n-footer="footer"]');
+    if (footer) footer.innerHTML = t.footer;
+
+    // Перемалювати товари (щоб кнопки і "Brak wyników" були перекладені)
+    renderShop();
+}
+
+// --- API & Shop logic ---
+let allItems = [];
 
 async function fetchShopItems() {
     try {
         const response = await fetch('http://localhost:5017/api/shop');
         allItems = await response.json();
-        console.log("Dane z API:", allItems);
         renderShop();
     } catch (error) {
         console.error("Błąd pobierania danych:", error);
     }
 }
 
-
 function renderList(list, containerId, filterType, search) {
+    const lang = getLang();
+    const t = translations[lang];
     const container = document.getElementById(containerId);
     let filtered = list.filter(item =>
         (filterType === "all" || item.type === filterType) &&
         (!search || item.name.toLowerCase().includes(search.toLowerCase()))
     );
     if (filtered.length === 0) {
-        container.innerHTML = `<div style="padding:24px;color:#e63946;">Brak wyników.</div>`;
+        container.innerHTML = `<div style="padding:24px;color:#e63946;">${t.no_results}</div>`;
         return;
     }
     container.innerHTML = filtered.map(item => `
-        <div class="shop-item">ф
+        <div class="shop-item">
             <img src="/images/${item.img}" alt="${item.name}">
             <div class="item-name">${item.name}</div>
             <div class="item-price">$${item.price}</div>
-<a class="item-btn" href="product.html?id=${item.id}">Przejdź</a>        </div>
+            <a class="item-btn" href="product.html?id=${item.id}">${t.go_btn}</a>
+        </div>
     `).join('');
 }
 
@@ -43,8 +124,25 @@ function renderShop() {
     renderList(supplements, "supplements-list", suppFilter, search);
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
+    // Language switcher
+    const lang = getLang();
+    const switcher = document.getElementById('lang-switcher');
+    if (switcher) switcher.value = lang;
+    setLanguage(lang);
+    if (switcher) {
+        switcher.addEventListener('change', function () {
+            setLanguage(this.value);
+        });
+    }
+
+    // Категорії (h2) для перекладу
+    document.querySelector('h2[data-i18n-section="clothes_title"]')?.setAttribute('data-i18n-section', 'clothes_title');
+    document.querySelector('h2[data-i18n-section="supplements_title"]')?.setAttribute('data-i18n-section', 'supplements_title');
+
+    // Футер для перекладу
+    document.querySelector('span[data-i18n-footer="footer"]')?.setAttribute('data-i18n-footer', 'footer');
+
     document.getElementById('clothes-filter').onchange = renderShop;
     document.getElementById('supp-filter').onchange = renderShop;
     document.getElementById('shop-search-input').oninput = renderShop;

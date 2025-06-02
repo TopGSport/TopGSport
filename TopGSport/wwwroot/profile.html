@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil | Top G Sport</title>
+    <title data-i18n="title">Profil | Top G Sport</title>
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -16,29 +16,36 @@
                 <span></span>
             </label>
             <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i> Główna</a></li>
-                <li><a href="about.html"><i class="fas fa-users"></i> O nas</a></li>
-                <li><a href="shop.html"><i class="fas fa-users"></i> Shop</a></li>
-                <li><a href="offer.html"><i class="fas fa-dumbbell"></i> Oferta</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-                <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Zaloguj</a></li>
-                <li><a href="profile.html" class="active"><i class="fas fa-user"></i> Profil</a></li>
+                <li><a href="index.html" data-i18n="home"><i class="fas fa-home"></i> Główna</a></li>
+                <li><a href="about.html" data-i18n="about"><i class="fas fa-users"></i> O nas</a></li>
+                <li><a href="shop.html" data-i18n="shop"><i class="fas fa-users"></i> Sklep</a></li>
+                <li><a href="offer.html" data-i18n="offer"><i class="fas fa-dumbbell"></i> Oferta</a></li>
+                <li><a href="contact.html" data-i18n="contact"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                <li><a href="login.html" data-i18n="login"><i class="fas fa-sign-in-alt"></i> Zaloguj</a></li>
+                <li><a href="profile.html" class="active" data-i18n="profile"><i class="fas fa-user"></i> Profil</a></li>
             </ul>
+            <div class="lang-switcher">
+                <span style="font-size:1.2em;margin-right:6px;">🌐</span>
+                <select id="lang-switcher">
+                    <option value="pl">PL</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
         </nav>
     </header>
     <div class="profile-container">
-        <h1>Twój profil</h1>
+        <h1 data-i18n="profile_title">Twój profil</h1>
         <div id="profile-info"></div>
-        <button id="edit-btn">Edytuj dane</button>
+        <button id="edit-btn" data-i18n="edit_btn">Edytuj dane</button>
         <form id="edit-form" style="display:none;">
-            <input type="text" id="edit-name" placeholder="Imię i nazwisko" required>
-            <input type="email" id="edit-email" placeholder="Email" required>
-            <input type="tel" id="edit-phone" placeholder="Telefon" required>
-            <button type="submit">Zapisz zmiany</button>
-            <button type="button" id="cancel-edit">Anuluj</button>
+            <input type="text" id="edit-name" placeholder="Imię i nazwisko" data-i18n-placeholder="form_name" required>
+            <input type="email" id="edit-email" placeholder="Email" data-i18n-placeholder="form_email" required>
+            <input type="tel" id="edit-phone" placeholder="Telefon" data-i18n-placeholder="form_phone" required>
+            <button type="submit" data-i18n="save_btn">Zapisz zmiany</button>
+            <button type="button" id="cancel-edit" data-i18n="cancel_btn">Anuluj</button>
             <div class="msg" id="edit-msg"></div>
         </form>
-        <h2>Historia zakupów</h2>
+        <h2 data-i18n="purchase_history_title">Historia zakupów</h2>
         <div id="purchase-history"></div>
     </div>
     <script src="/js/profile.js"></script>

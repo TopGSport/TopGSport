@@ -1,68 +1,35 @@
-const karnety = {
-    kar1: {
-        name: "Nocny Karnet",
-        price: "59 zł / miesiąc",
-        description: "Dostęp od 22:00 do 6:00. Idealny dla nocnych marków!",
-        img: "karnet.jpg"
-    },
-    kar2: {
-        name: "Tygodniowy Karnet",
-        price: "39 zł / tydzień",
-        description: "Pełny dostęp przez 7 dni. Świetny na start lub dla gości.",
-        img: "karnet.jpg"
-    },
-    kar3: {
-        name: "24/7 Karnet",
-        price: "99 zł / miesiąc",
-        description: "Nielimitowany dostęp do siłowni przez całą dobę!",
-        img: "karnet.jpg"
-    },
-    kar4: {
-        name: "Miesięczny Karnet",
-        price: "89 zł / miesiąc",
-        description: "Pełny dostęp do wszystkich stref przez 30 dni.",
-        img: "karnet.jpg"
-    },
-    kar5: {
-        name: "Studencki Karnet",
-        price: "69 zł / miesiąc",
-        description: "Dla uczniów i studentów do 26 lat. Wymagana legitymacja.",
-        img: "karnet.jpg"
-    },
-    kar6: {
-        name: "VIP Karnet",
-        price: "159 zł / miesiąc",
-        description: "Wszystko bez limitu + sauna, konsultacje, priorytetowa obsługa.",
-        img: "karnet.jpg"
-    },
-    kar7: {
-        name: "Rodzinny Karnet",
-        price: "199 zł / miesiąc",
-        description: "Dla 2 dorosłych + dzieci do 16 lat. Trenujcie razem!",
-        img: "karnet.jpg"
-    },
-    kar8: {
-        name: "Wejście Jednorazowe",
-        price: "15 zł / wejście",
-        description: "Jednorazowy wstęp do siłowni. Bez zobowiązań.",
-        img: "karnet.jpg"
+const navList = document.querySelector('.main-nav ul');
+const loginLi = navList.querySelector('a[href="login.html"]').parentElement;
+
+function updateLoginButton() {
+    if (sessionStorage.getItem('currentUserId')) {
+        loginLi.innerHTML = '<a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>';
+        document.getElementById('logout-link').onclick = function (e) {
+            e.preventDefault();
+            sessionStorage.removeItem('currentUserId');
+            window.location.href = "login.html";
+        };
+    } else {
+        loginLi.innerHTML = '<a href="login.html"><i class="fas fa-sign-in-alt"></i> Zaloguj</a>';
     }
-};
+}
+
+updateLoginButton();
 
 function getCurrentUser() {
-    return localStorage.getItem('currentUser');
+    return sessionStorage.getItem('currentUser');
 }
 function getUsers() {
-    return JSON.parse(localStorage.getItem('users') || '[]');
+    return JSON.parse(sessionStorage.getItem('users') || '[]');
 }
 function setUsers(users) {
-    localStorage.setItem('users', JSON.stringify(users));
+    sessionStorage.setItem('users', JSON.stringify(users));
 }
 function getUserByEmail(email) {
     return getUsers().find(u => u.email === email);
 }
 function setCurrentUser(email) {
-    localStorage.setItem('currentUser', email);
+    sessionStorage.setItem('currentUser', email);
 }
 
 if (!getCurrentUser()) {

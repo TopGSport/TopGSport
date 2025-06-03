@@ -1,15 +1,33 @@
-﻿function getCurrentUser() {
-    return localStorage.getItem('currentUser');
+﻿const navList = document.querySelector('.main-nav ul');
+const loginLi = navList.querySelector('a[href="login.html"]').parentElement;
+
+function updateLoginButton() {
+    if (sessionStorage.getItem('currentUserId')) {
+        loginLi.innerHTML = '<a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>';
+        document.getElementById('logout-link').onclick = function (e) {
+            e.preventDefault();
+            sessionStorage.removeItem('currentUserId');
+            window.location.href = "login.html";
+        };
+    } else {
+        loginLi.innerHTML = '<a href="login.html"><i class="fas fa-sign-in-alt"></i> Zaloguj</a>';
+    }
+}
+
+updateLoginButton();
+
+function getCurrentUser() {
+    return sessionStorage.getItem('currentUser');
 }
 function getCartKey() {
     const user = getCurrentUser();
     return user ? `cart_${user}` : 'cart_guest';
 }
 function getCart() {
-    return JSON.parse(localStorage.getItem(getCartKey()) || '[]');
+    return JSON.parse(sessionStorage.getItem(getCartKey()) || '[]');
 }
 function setCart(cart) {
-    localStorage.setItem(getCartKey(), JSON.stringify(cart));
+    sessionStorage.setItem(getCartKey(), JSON.stringify(cart));
 }
 function updateCartCount() {
     const el = document.getElementById('cart-count');

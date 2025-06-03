@@ -1,6 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    const navList = document.querySelector('.main-nav ul');
+    const loginLi = navList.querySelector('a[href="login.html"]').parentElement;
+
+    function updateLoginButton() {
+        if (sessionStorage.getItem('currentUserId')) {
+            loginLi.innerHTML = '<a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>';
+            document.getElementById('logout-link').onclick = function (e) {
+                e.preventDefault();
+                sessionStorage.removeItem('currentUserId');
+                window.location.href = "login.html";
+            };
+        } else {
+            loginLi.innerHTML = '<a href="login.html"><i class="fas fa-sign-in-alt"></i> Zaloguj</a>';
+        }
+    }
+
+    updateLoginButton();
+
     function getUsers() {
-        const data = localStorage.getItem('users');
+        const data = sessionStorage.getItem('users');
         try {
             const parsed = JSON.parse(data);
             return Array.isArray(parsed) ? parsed : [];
@@ -10,15 +29,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function setUsers(users) {
-        localStorage.setItem('users', JSON.stringify(users));
+        sessionStorage.setItem('users', JSON.stringify(users));
     }
 
     function setCurrentUser(email) {
-        localStorage.setItem('currentUser', email);
+        sessionStorage.setItem('currentUser', email);
     }
 
     function getCurrentUser() {
-        return localStorage.getItem('currentUser');
+        return sessionStorage.getItem('currentUser');
     }
 
     function getUserByEmail(email) {
@@ -169,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            localStorage.setItem('currentUserId', result.userId);
+            sessionStorage.setItem('currentUserId', result.userId);
 
             msg.style.color = "#4caf50";
             msg.textContent = "Logowanie udane! Przekierowanie...";

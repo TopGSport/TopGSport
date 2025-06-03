@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Анімації для секцій
     document.querySelectorAll('.animate-fadein').forEach(function(el, i) {
         el.style.animationDelay = (0.2 * i) + 's';
     });
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.animationDelay = (0.15 * i) + 's';
     });
 });
-// --- Testimonials animation (залишаємо для сторінок з відгуками) ---
 document.addEventListener("DOMContentLoaded", function () {
     const testimonials = document.querySelectorAll('.testimonial-item');
     if (testimonials.length) {
@@ -36,10 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// --- Translations ---
 const translations = {
     pl: {
-        // Головне меню
         title: "O nas | Top G Sport",
         home: "Główna",
         about: "O nas",
@@ -49,27 +45,23 @@ const translations = {
         login: "Zaloguj",
         profile: "Profil",
 
-        // About hero
         about_hero_title: "Najlepsza Siłownia w Mieście",
         about_hero_desc: "Top G Sport to nie tylko siłownia – to społeczność ludzi z pasją!  U nas znajdziesz nowoczesny sprzęt, profesjonalnych trenerów i motywującą atmosferę.<br>Dołącz do nas i przekonaj się, dlaczego jesteśmy najlepsi!",
 
-        // Галерея
         gallery_title: "Nasza Siłownia w Obiektywie",
 
-        // Команда
         team_title: "Poznaj nasz zespół",
-        team1_name: "Anna Nowak",
+        team1_name: "Andrzej",
         team1_role: "Trener personalny",
-        team2_name: "Jan Kowalski",
+        team2_name: "Parhomczik",
         team2_role: "Instruktor fitness",
-        team3_name: "Kasia Wiśniewska",
+        team3_name: "Boss_Boy",
         team3_role: "Dietetyk",
 
-        // Футер
+        
         footer_copyright: "Top G Sport &copy; 2025"
     },
     en: {
-        // Main menu
         title: "About us | Top G Sport",
         home: "Home",
         about: "About us",
@@ -79,20 +71,17 @@ const translations = {
         login: "Login",
         profile: "Profile",
 
-        // About hero
         about_hero_title: "The Best Gym in Town",
         about_hero_desc: "Top G Sport is not just a gym – it's a community of passionate people!  Here you'll find modern equipment, professional trainers, and a motivating atmosphere.<br>Join us and see why we're the best!",
 
-        // Gallery
         gallery_title: "Our Gym in Pictures",
 
-        // Team
         team_title: "Meet our team",
-        team1_name: "Anna Nowak",
+        team1_name: "Andrew Black",
         team1_role: "Personal Trainer",
-        team2_name: "Jan Kowalski",
+        team2_name: "Parhom4ik",
         team2_role: "Fitness Instructor",
-        team3_name: "Kasia Wiśniewska",
+        team3_name: "Svatik Sava",
         team3_role: "Dietitian",
 
         // Footer
@@ -100,13 +89,11 @@ const translations = {
     }
 };
 
-// --- Language switcher ---
 function setLanguage(lang) {
     localStorage.setItem('lang', lang);
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            // Якщо це <a> з іконкою, змінюй тільки текст після іконки
             if (el.tagName === "A" && el.querySelector("i")) {
                 el.childNodes.forEach(node => {
                     if (node.nodeType === 3) node.textContent = " " + translations[lang][key];

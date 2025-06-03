@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using TopGSport.Database.Data;
 using TopGSport.Database.Models;
+using BCrypt.Net;
+
 
 namespace TopGSport.Controllers
 {
@@ -19,8 +21,8 @@ namespace TopGSport.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email && u.Password == request.Password);
-            if (user == null)
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
             {
                 return Unauthorized(new { message = "Nieprawidłowy email lub hasło" });
             }
@@ -40,7 +42,7 @@ namespace TopGSport.Controllers
                 Name = request.Name,
                 Email = request.Email,
                 Phone = request.Phone,
-                Password = request.Password, // W produkcji: hashuj hasło
+                Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
                 MembershipId = null, 
                 MembershipStartDate = null,
                 Options = null,

@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return getUsers().find(u => u.email === email);
     }
 
-    // Анімації для форм
     function showLoginForm() {
         const loginForm = document.getElementById('login-form');
         const registerForm = document.getElementById('register-form');
@@ -82,6 +81,30 @@ document.addEventListener('DOMContentLoaded', function () {
         const phone = document.getElementById('reg-phone').value.trim();
         const password = document.getElementById('reg-password').value;
         const msg = document.getElementById('register-msg');
+
+        if (!/^([A-Za-zĄąĆćĘęŁłŃńÓóŚśŹźŻż]+)\s+([A-Za-zĄąĆćĘęŁłŃńÓóŚśŹźŻż]+)$/.test(name)) {
+            msg.textContent = "Podaj imię i nazwisko (dwa słowa)";
+            msg.style.color = "#e63946";
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            msg.textContent = "Podaj poprawny adres email";
+            msg.style.color = "#e63946";
+            return;
+        }
+
+        if (!/^\d{9}$/.test(phone)) {
+            msg.textContent = "Telefon musi mieć dokładnie 9 cyfr";
+            msg.style.color = "#e63946";
+            return;
+        }
+
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/.test(password)) {
+            msg.textContent = "Hasło musi mieć min. 8 znaków, zawierać literę i cyfrę";
+            msg.style.color = "#e63946";
+            return;
+        }
 
         if (!name || !email || !phone || !password) {
             msg.textContent = "Wypełnij wszystkie pola!";

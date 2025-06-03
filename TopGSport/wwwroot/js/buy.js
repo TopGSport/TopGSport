@@ -16,55 +16,52 @@ function updateLoginButton() {
 
 updateLoginButton();
 
-function getCurrentUser() {
-    return sessionStorage.getItem('currentUser');
-}
-function getUsers() {
-    return JSON.parse(sessionStorage.getItem('users') || '[]');
-}
-function setUsers(users) {
-    sessionStorage.setItem('users', JSON.stringify(users));
-}
-function getUserByEmail(email) {
-    return getUsers().find(u => u.email === email);
-}
-function setCurrentUser(email) {
-    sessionStorage.setItem('currentUser', email);
-}
-
-if (!getCurrentUser()) {
+const userId = sessionStorage.getItem('currentUserId');
+if (!userId) {
     window.location.href = "login.html";
 }
 
 function getKarnetFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('kar') || 'kar1';
+    return params.get('kar')?.replace('kar', '') || '1'; // Zwraca tylko ID
 }
 
-function fillUserData() {
-    const user = getUserByEmail(getCurrentUser());
-    if (user) {
+async function fillUserData() {
+    const userId = sessionStorage.getItem('currentUserId');
+    if (!userId) return;
+    try {
+        const response = await fetch(`http://localhost:5017/api/users/${userId}`);
+        if (!response.ok) return;
+        const user = await response.json();
         document.getElementById('user-name').value = user.name;
         document.getElementById('user-email').value = user.email;
         document.getElementById('user-phone').value = user.phone;
+    } catch (e) { }
+}
+
+async function renderKarnetInfo() {
+    const karId = getKarnetFromUrl();
+    try {
+        const response = await fetch(`http://localhost:5017/api/memberships/${karId}`);
+        if (!response.ok) throw new Error('Karnet nie znaleziony');
+        const kar = await response.json();
+
+        document.getElementById('karnet-info').innerHTML = `
+            <img src="${kar.img}" alt="${kar.name}">
+            <h2>${kar.name}</h2>
+            <div class="price">${kar.price}</div>
+            <p>${kar.description}</p>
+        `;
+    } catch (error) {
+        console.error('Błąd podczas pobierania danych karnetu:', error);
+        document.getElementById('karnet-info').innerHTML = `<p>Błąd ładowania danych karnetu. Spróbuj ponownie później.</p>`;
     }
 }
 
-function renderKarnetInfo() {
-    const karKey = getKarnetFromUrl();
-    const kar = karnety[karKey] || karnety.kar1;
-    document.getElementById('karnet-info').innerHTML = `
-        <img src="${kar.img}" alt="${kar.name}">
-        <h2>${kar.name}</h2>
-        <div class="price">${kar.price}</div>
-        <p>${kar.description}</p>
-    `;
-}
-
-document.getElementById('buy-form').onsubmit = function(e) {
+document.getElementById('buy-form').onsubmit = async function (e) {
     e.preventDefault();
-    const karKey = getKarnetFromUrl();
-    const kar = karnety[karKey] || karnety.kar1;
+
+    const karId = getKarnetFromUrl();
     const startDate = document.getElementById('start-date').value;
     const optTrener = document.getElementById('opt-trener').checked;
     const optTowel = document.getElementById('opt-towel').checked;
@@ -73,41 +70,54 @@ document.getElementById('buy-form').onsubmit = function(e) {
     const email = document.getElementById('user-email').value.trim();
     const phone = document.getElementById('user-phone').value.trim();
     const msg = document.getElementById('buy-msg');
+
     if (!startDate || !name || !email || !phone) {
         msg.textContent = "Wypełnij wszystkie pola!";
         return;
     }
-    const users = getUsers();
-    const user = users.find(u => u.email === getCurrentUser());
-    if (!user) {
+
+    const userId = sessionStorage.getItem('currentUserId');
+    if (!userId) {
         msg.textContent = "Błąd użytkownika!";
         return;
     }
-    const purchase = {
-        karKey,
-        name: kar.name,
-        price: kar.price,
-        startDate,
-        options: {
-            trener: optTrener,
-            towel: optTowel,
-            locker: optLocker
-        },
-        date: new Date().toISOString()
-    };
-    user.purchases = user.purchases || [];
-    user.purchases.push(purchase);
-    user.name = name;
-    user.email = email;
-    user.phone = phone;
-    setUsers(users);
-    msg.style.color = "#4caf50";
-    msg.innerHTML = `Zakup udany! Numer karnetu: <b>${karKey.toUpperCase()}-${user.purchases.length}</b><br>Instrukcja: Przyjdź do recepcji z tym numerem i dokumentem tożsamości.`;
-    document.getElementById('buy-form').reset();
-    fillUserData();
+
+    try {
+        const response = await fetch('http://localhost:5017/api/purchases', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: parseInt(userId),
+                membershipId: parseInt(karId),
+                startDate: startDate,
+                options: {
+                    trener: optTrener,
+                    towel: optTowel,
+                    locker: optLocker
+                }
+            })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            msg.textContent = result.message || "Błąd zakupu!";
+            return;
+        }
+
+        msg.style.color = "#4caf50";
+        msg.innerHTML = `Zakup udany! Numer karnetu: <b>${result.cardNumber}</b><br>Instrukcja: Przyjdź do recepcji z tym numerem i dokumentem tożsamości.`;
+        document.getElementById('buy-form').reset();
+
+    } catch (error) {
+        console.error('Błąd zakupu:', error);
+        msg.textContent = "Błąd serwera. Spróbuj ponownie później.";
+    }
 };
 
-window.onload = function() {
+window.onload = function () {
     renderKarnetInfo();
     fillUserData();
 };

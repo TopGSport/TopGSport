@@ -12,8 +12,8 @@ using TopGSport.Database.Data;
 namespace TopGSport.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250520170132_20052025")]
-    partial class _20052025
+    [Migration("20250528081246_new")]
+    partial class @new
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -176,7 +176,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 1,
                             Category = "Clothes",
-                            Img = "img123.jpg",
+                            Img = "t-shirt-boss-boy.jpg",
                             Name = "T-shirt BossBoy",
                             Price = 25.00m,
                             Type = "tshirt"
@@ -185,8 +185,8 @@ namespace TopGSport.Migrations
                         {
                             Id = 2,
                             Category = "Clothes",
-                            Img = "img123.jpg",
-                            Name = "Szorty SStreningowe",
+                            Img = "szorty_treningowe.jpg",
+                            Name = "Szorty treningowe",
                             Price = 22.00m,
                             Type = "shorts"
                         },
@@ -194,7 +194,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 3,
                             Category = "Clothes",
-                            Img = "img123.jpg",
+                            Img = "bluza_z_kapturem.jpg",
                             Name = "Bluza z kapturem",
                             Price = 40.00m,
                             Type = "hoodie"
@@ -203,7 +203,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 4,
                             Category = "Clothes",
-                            Img = "img123.jpg",
+                            Img = "t-shirt_classic.webp",
                             Name = "T-shirt Classic",
                             Price = 20.00m,
                             Type = "tshirt"
@@ -212,7 +212,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 5,
                             Category = "Clothes",
-                            Img = "img123.jpg",
+                            Img = "szorty_pro.jpg",
                             Name = "Szorty Pro",
                             Price = 28.00m,
                             Type = "shorts"
@@ -221,7 +221,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 6,
                             Category = "Supplements",
-                            Img = "img123.jpg",
+                            Img = "kreatyna.jpg",
                             Name = "Kreatyna Monohydrat",
                             Price = 18.00m,
                             Type = "creatine"
@@ -230,7 +230,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 7,
                             Category = "Supplements",
-                            Img = "img123.jpg",
+                            Img = "proteina.webp",
                             Name = "Białko WPC 80",
                             Price = 32.00m,
                             Type = "protein"
@@ -239,7 +239,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 8,
                             Category = "Supplements",
-                            Img = "img123.jpg",
+                            Img = "bcaa.webp",
                             Name = "BCAA 2:1:1",
                             Price = 15.00m,
                             Type = "bcaa"
@@ -248,7 +248,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 9,
                             Category = "Supplements",
-                            Img = "img123.jpg",
+                            Img = "kreatyn_jablczan.jpg",
                             Name = "Kreatyna Jabłczan",
                             Price = 20.00m,
                             Type = "creatine"
@@ -257,7 +257,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 10,
                             Category = "Supplements",
-                            Img = "img123.jpg",
+                            Img = "bialko_isolate.webp",
                             Name = "Białko Isolate",
                             Price = 38.00m,
                             Type = "protein"
@@ -271,9 +271,6 @@ namespace TopGSport.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .IsRequired()

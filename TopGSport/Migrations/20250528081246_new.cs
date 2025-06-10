@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TopGSport.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class @new : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,6 +50,8 @@ namespace TopGSport.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Category = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Type = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Price = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
@@ -74,7 +76,6 @@ namespace TopGSport.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Phone = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    BirthDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     Password = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     MembershipId = table.Column<int>(type: "int", nullable: true),
@@ -111,19 +112,19 @@ namespace TopGSport.Migrations
 
             migrationBuilder.InsertData(
                 table: "Shop",
-                columns: new[] { "Id", "Img", "Name", "Price", "Type" },
+                columns: new[] { "Id", "Category", "Img", "Name", "Price", "Type" },
                 values: new object[,]
                 {
-                    { 1, "img123.jpg", "T-shirt BossBoy", 25.00m, "tshirt" },
-                    { 2, "img123.jpg", "Szorty treningowe", 22.00m, "shorts" },
-                    { 3, "img123.jpg", "Bluza z kapturem", 40.00m, "hoodie" },
-                    { 4, "img123.jpg", "T-shirt Classic", 20.00m, "tshirt" },
-                    { 5, "img123.jpg", "Szorty Pro", 28.00m, "shorts" },
-                    { 6, "img123.jpg", "Kreatyna Monohydrat", 18.00m, "creatine" },
-                    { 7, "img123.jpg", "Białko WPC 80", 32.00m, "protein" },
-                    { 8, "img123.jpg", "BCAA 2:1:1", 15.00m, "bcaa" },
-                    { 9, "img123.jpg", "Kreatyna Jabłczan", 20.00m, "creatine" },
-                    { 10, "img123.jpg", "Białko Isolate", 38.00m, "protein" }
+                    { 1, "Clothes", "t-shirt-boss-boy.jpg", "T-shirt BossBoy", 25.00m, "tshirt" },
+                    { 2, "Clothes", "szorty_treningowe.jpg", "Szorty treningowe", 22.00m, "shorts" },
+                    { 3, "Clothes", "bluza_z_kapturem.jpg", "Bluza z kapturem", 40.00m, "hoodie" },
+                    { 4, "Clothes", "t-shirt_classic.webp", "T-shirt Classic", 20.00m, "tshirt" },
+                    { 5, "Clothes", "szorty_pro.jpg", "Szorty Pro", 28.00m, "shorts" },
+                    { 6, "Supplements", "kreatyna.jpg", "Kreatyna Monohydrat", 18.00m, "creatine" },
+                    { 7, "Supplements", "proteina.webp", "Białko WPC 80", 32.00m, "protein" },
+                    { 8, "Supplements", "bcaa.webp", "BCAA 2:1:1", 15.00m, "bcaa" },
+                    { 9, "Supplements", "kreatyn_jablczan.jpg", "Kreatyna Jabłczan", 20.00m, "creatine" },
+                    { 10, "Supplements", "bialko_isolate.webp", "Białko Isolate", 38.00m, "protein" }
                 });
 
             migrationBuilder.CreateIndex(

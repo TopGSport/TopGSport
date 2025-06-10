@@ -1,15 +1,16 @@
-﻿function getCurrentUser() {
-    return localStorage.getItem('currentUser');
+﻿
+function getCurrentUser() {
+    return sessionStorage.getItem('currentUser');
 }
 function getCartKey() {
     const user = getCurrentUser();
     return user ? `cart_${user}` : 'cart_guest';
 }
 function getCart() {
-    return JSON.parse(localStorage.getItem(getCartKey()) || '[]');
+    return JSON.parse(sessionStorage.getItem(getCartKey()) || '[]');
 }
 function setCart(cart) {
-    localStorage.setItem(getCartKey(), JSON.stringify(cart));
+    sessionStorage.setItem(getCartKey(), JSON.stringify(cart));
 }
 function updateCartCount() {
     const el = document.getElementById('cart-count');

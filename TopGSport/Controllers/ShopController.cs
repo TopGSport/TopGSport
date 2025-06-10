@@ -2,7 +2,7 @@
 using TopGSport.Database.Data;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/shop")]
 public class ShopController : ControllerBase
 {
     private readonly DataContext _context;

@@ -3,7 +3,7 @@ const translations = {
         title: "Oferta | Top G Sport",
         home: "Główna",
         about: "O nas",
-        shop: "Shop",
+        shop: "Sklep",
         offer: "Oferta",
         contact: "Kontakt",
         login: "Zaloguj",

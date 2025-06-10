@@ -191,8 +191,9 @@ header {
     gap: 20px;
     margin: 0;
     padding: 0;
-    flex-grow: 1;
+    flex: 1;
     justify-content: flex-end;
+    align-items: center;
 }
 
     .main-nav ul li a {
@@ -280,12 +281,14 @@ header {
             }
 }
 .lang-switcher {
-    margin-left: auto;
     display: flex;
     align-items: center;
     position: relative;
     z-index: 10;
+    margin-left: 0;
 }
+
+
 
 #lang-switcher {
     appearance: none;

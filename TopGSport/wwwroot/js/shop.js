@@ -41,14 +41,11 @@ function setLanguage(lang) {
     localStorage.setItem('lang', lang);
     const t = translations[lang];
 
-    // Title
     document.title = t.title;
 
-    // Menu
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key]) {
-            // Якщо <a> з іконкою, змінюй тільки текст після іконки
             if (el.tagName === "A" && el.querySelector("i")) {
                 el.childNodes.forEach(node => {
                     if (node.nodeType === 3) node.textContent = " " + t[key];
@@ -59,25 +56,20 @@ function setLanguage(lang) {
         }
     });
 
-    // Плейсхолдер пошуку
     const searchInput = document.getElementById('shop-search-input');
     if (searchInput) searchInput.placeholder = t.search_placeholder;
 
-    // Категорії
     const clothesTitle = document.querySelector('[data-i18n-section="clothes_title"]');
     if (clothesTitle) clothesTitle.innerHTML = t.clothes_title;
     const suppTitle = document.querySelector('[data-i18n-section="supplements_title"]');
     if (suppTitle) suppTitle.innerHTML = t.supplements_title;
 
-    // Футер
     const footer = document.querySelector('[data-i18n-footer="footer"]');
     if (footer) footer.innerHTML = t.footer;
 
-    // Перемалювати товари (щоб кнопки і "Brak wyników" були перекладені)
     renderShop();
 }
 
-// --- API & Shop logic ---
 let allItems = [];
 
 const navList = document.querySelector('.main-nav ul');
@@ -143,7 +135,6 @@ function renderShop() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Language switcher
     const lang = getLang();
     const switcher = document.getElementById('lang-switcher');
     if (switcher) switcher.value = lang;
@@ -154,11 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Категорії (h2) для перекладу
     document.querySelector('h2[data-i18n-section="clothes_title"]')?.setAttribute('data-i18n-section', 'clothes_title');
     document.querySelector('h2[data-i18n-section="supplements_title"]')?.setAttribute('data-i18n-section', 'supplements_title');
 
-    // Футер для перекладу
     document.querySelector('span[data-i18n-footer="footer"]')?.setAttribute('data-i18n-footer', 'footer');
 
     document.getElementById('clothes-filter').onchange = renderShop;

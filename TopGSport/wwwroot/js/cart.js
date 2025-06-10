@@ -1,4 +1,16 @@
-﻿
+﻿const cartTranslations = {
+    pl: {
+        cart_empty: "Koszyk jest pusty.",
+        cart_total: "Suma:",
+        cart_checkout: "Oformić zamówienie"
+    },
+    en: {
+        cart_empty: "Cart is empty.",
+        cart_total: "Total:",
+        cart_checkout: "Checkout"
+    }
+};
+
 function getCurrentUser() {
     return sessionStorage.getItem('currentUser');
 }
@@ -29,13 +41,16 @@ function closeCart() {
     if (!el) return;
     el.classList.remove('open');
 }
+
 function renderCart() {
     const cart = getCart();
     const list = document.getElementById('side-cart-list');
+    const lang = localStorage.getItem('lang') || 'pl'; 
+
     if (!list) return;
     if (!cart.length) {
-        list.innerHTML = '<div style="color:#e63946;">Кошик порожній.</div>';
-        document.getElementById('side-cart-total').textContent = 'Сума: $0';
+        list.innerHTML = `<div style="color:#e63946;">${cartTranslations[lang]['cart_empty']}</div>`;
+        document.getElementById('side-cart-total').textContent = `${cartTranslations[lang]['cart_total']} $0`;
         return;
     }
     let total = 0;
@@ -55,8 +70,9 @@ function renderCart() {
             </div>
         `;
     }).join('');
-    document.getElementById('side-cart-total').textContent = 'Сума: $' + total.toFixed(2);
+    document.getElementById('side-cart-total').textContent = `${cartTranslations[lang]['cart_total']} $${total.toFixed(2)}`;
 }
+
 function addToCart(product) {
     let cart = getCart();
     const idx = cart.findIndex(i => i.id === product.id);
@@ -86,13 +102,14 @@ function removeFromCart(id) {
     renderCart();
     updateCartCount();
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     const cartIcon = document.getElementById('cart-icon');
     const cartClose = document.getElementById('side-cart-close');
     if (cartIcon) cartIcon.onclick = openCart;
     if (cartClose) cartClose.onclick = closeCart;
     updateCartCount();
-    // Кнопка оформлення
+
     const checkoutBtn = document.getElementById('side-cart-checkout');
     if (checkoutBtn) {
         checkoutBtn.onclick = function () {
@@ -100,6 +117,30 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 });
+
+function updateCartLanguage() {
+    const lang = localStorage.getItem('lang') || 'pl';
+
+    const cartTitle = document.querySelector('#side-cart-header [data-i18n="cart_title"]');
+    if (cartTitle && cartTranslations[lang]['cart_title']) {
+        cartTitle.textContent = cartTranslations[lang]['cart_title'];
+    }
+
+    const checkoutBtn = document.getElementById('side-cart-checkout');
+    if (checkoutBtn && cartTranslations[lang]['cart_checkout']) {
+        checkoutBtn.textContent = cartTranslations[lang]['cart_checkout'];
+    }
+
+    renderCart();
+}
+
+window.addEventListener('storage', function (e) {
+    if (e.key === 'lang') {
+        updateCartLanguage();
+    }
+});
+
 window.addToCart = addToCart;
 window.changeQty = changeQty;
 window.removeFromCart = removeFromCart;
+window.updateCartLanguage = updateCartLanguage;

@@ -1,3 +1,85 @@
+const translations = {
+    pl: {
+        title: "Kup Karnet | Top G Sport",
+        home: "Główna",
+        about: "O nas",
+        shop: "Shop",
+        offer: "Oferta",
+        contact: "Kontakt",
+        login: "Zaloguj",
+        profile: "Profil",
+        buy_title: "Kup Karnet",
+        start_label: "Data startu:",
+        opt_trener: "Osobisty trener",
+        opt_towel: "Ręcznik",
+        opt_locker: "Szafka",
+        contact_data: "Dane kontaktowe",
+        ph_name: "Imię i nazwisko",
+        ph_email: "Email",
+        ph_phone: "Telefon",
+        buy_btn: "Kup teraz",
+        error_fields: "Wypełnij wszystkie pola!",
+        error_user: "Błąd użytkownika!",
+        error_purchase: "Błąd zakupu!",
+        error_server: "Błąd serwera. Spróbuj ponownie później.",
+        success_purchase: "Zakup udany! Numer karnetu:",
+        success_instruction: "Instrukcja: Przyjdź do recepcji z tym numerem i dokumentem tożsamości.",
+        error_loading: "Błąd ładowania danych karnetu. Spróbuj ponownie później."
+    },
+    en: {
+        title: "Buy Membership | Top G Sport",
+        home: "Home",
+        about: "About us",
+        shop: "Shop",
+        offer: "Offer",
+        contact: "Contact",
+        login: "Login",
+        profile: "Profile",
+        buy_title: "Buy Membership",
+        start_label: "Start date:",
+        opt_trener: "Personal trainer",
+        opt_towel: "Towel",
+        opt_locker: "Locker",
+        contact_data: "Contact details",
+        ph_name: "Full name",
+        ph_email: "Email",
+        ph_phone: "Phone",
+        buy_btn: "Buy now",
+        error_fields: "Fill in all fields!",
+        error_user: "User error!",
+        error_purchase: "Purchase error!",
+        error_server: "Server error. Please try again later.",
+        success_purchase: "Purchase successful! Membership number:",
+        success_instruction: "Instructions: Come to reception with this number and ID document.",
+        error_loading: "Error loading membership data. Please try again later."
+    }
+};
+
+function setLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            if (el.tagName === "A" && el.querySelector("i")) {
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === 3) node.textContent = " " + translations[lang][key];
+                });
+            } else if (el.tagName === "TITLE") {
+                document.title = translations[lang][key];
+            } else {
+                el.innerHTML = translations[lang][key];
+            }
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+        }
+    });
+}
+
 const navList = document.querySelector('.main-nav ul');
 const loginLi = navList.querySelector('a[href="login.html"]').parentElement;
 
@@ -23,7 +105,7 @@ if (!userId) {
 
 function getKarnetFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('kar')?.replace('kar', '') || '1'; // Zwraca tylko ID
+    return params.get('kar')?.replace('kar', '') || '1';
 }
 
 async function fillUserData() {
@@ -54,7 +136,8 @@ async function renderKarnetInfo() {
         `;
     } catch (error) {
         console.error('Błąd podczas pobierania danych karnetu:', error);
-        document.getElementById('karnet-info').innerHTML = `<p>Błąd ładowania danych karnetu. Spróbuj ponownie później.</p>`;
+        const lang = localStorage.getItem('lang') || 'pl';
+        document.getElementById('karnet-info').innerHTML = `<p>${translations[lang]['error_loading']}</p>`;
     }
 }
 
@@ -70,15 +153,16 @@ document.getElementById('buy-form').onsubmit = async function (e) {
     const email = document.getElementById('user-email').value.trim();
     const phone = document.getElementById('user-phone').value.trim();
     const msg = document.getElementById('buy-msg');
+    const lang = localStorage.getItem('lang') || 'pl';
 
     if (!startDate || !name || !email || !phone) {
-        msg.textContent = "Wypełnij wszystkie pola!";
+        msg.textContent = translations[lang]['error_fields'];
         return;
     }
 
     const userId = sessionStorage.getItem('currentUserId');
     if (!userId) {
-        msg.textContent = "Błąd użytkownika!";
+        msg.textContent = translations[lang]['error_user'];
         return;
     }
 
@@ -103,17 +187,17 @@ document.getElementById('buy-form').onsubmit = async function (e) {
         const result = await response.json();
 
         if (!response.ok) {
-            msg.textContent = result.message || "Błąd zakupu!";
+            msg.textContent = result.message || translations[lang]['error_purchase'];
             return;
         }
 
         msg.style.color = "#4caf50";
-        msg.innerHTML = `Zakup udany! Numer karnetu: <b>${result.cardNumber}</b><br>Instrukcja: Przyjdź do recepcji z tym numerem i dokumentem tożsamości.`;
+        msg.innerHTML = `${translations[lang]['success_purchase']} <b>${result.cardNumber}</b><br>${translations[lang]['success_instruction']}`;
         document.getElementById('buy-form').reset();
 
     } catch (error) {
         console.error('Błąd zakupu:', error);
-        msg.textContent = "Błąd serwera. Spróbuj ponownie później.";
+        msg.textContent = translations[lang]['error_server'];
     }
 };
 
@@ -121,3 +205,16 @@ window.onload = function () {
     renderKarnetInfo();
     fillUserData();
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('lang') || 'pl';
+    const switcher = document.getElementById('lang-switcher');
+    if (switcher) switcher.value = lang;
+    setLanguage(lang);
+
+    if (switcher) {
+        switcher.addEventListener('change', function () {
+            setLanguage(this.value);
+        });
+    }
+});

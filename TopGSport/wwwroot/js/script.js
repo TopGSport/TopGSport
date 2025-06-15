@@ -53,3 +53,25 @@ document.getElementById('customChatIcon').addEventListener('click', function () 
 document.getElementById('closeChatBtn').addEventListener('click', function () {
     document.getElementById('customChatWindow').classList.remove('active');
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const chatIcon = document.getElementById('customChatIcon');
+    const chatWindow = document.getElementById('customChatWindow');
+    const closeBtn = document.getElementById('closeChatBtn');
+
+    if (chatIcon && chatWindow && closeBtn) {
+        chatIcon.addEventListener('click', function() {
+            chatWindow.classList.add('active');
+        });
+        closeBtn.addEventListener('click', function() {
+            chatWindow.classList.remove('active');
+        });
+    }
+
+    // Слухаємо події від Voiceflow
+    window.addEventListener('message', function(event) {
+        // Voiceflow надсилає подію з type: 'vf-close'
+        if (event.data && event.data.type === 'vf-close') {
+            chatWindow.classList.remove('active');
+        }
+    });
+});

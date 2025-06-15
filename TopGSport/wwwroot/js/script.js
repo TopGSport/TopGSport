@@ -46,3 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(testimonial);
     });
 });
+document.getElementById('customChatIcon').addEventListener('click', function () {
+    document.getElementById('customChatWindow').classList.add('active');
+});
+// Закрити чат по кліку на хрестик
+document.getElementById('closeChatBtn').addEventListener('click', function () {
+    document.getElementById('customChatWindow').classList.remove('active');
+});

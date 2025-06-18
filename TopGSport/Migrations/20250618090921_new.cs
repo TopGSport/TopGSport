@@ -115,16 +115,16 @@ namespace TopGSport.Migrations
                 columns: new[] { "Id", "Category", "Img", "Name", "Price", "Type" },
                 values: new object[,]
                 {
-                    { 1, "Clothes", "t-shirt-boss-boy.jpg", "T-shirt BossBoy", 25.00m, "tshirt" },
-                    { 2, "Clothes", "szorty_treningowe.jpg", "Szorty treningowe", 22.00m, "shorts" },
-                    { 3, "Clothes", "bluza_z_kapturem.jpg", "Bluza z kapturem", 40.00m, "hoodie" },
-                    { 4, "Clothes", "t-shirt_classic.webp", "T-shirt Classic", 20.00m, "tshirt" },
-                    { 5, "Clothes", "szorty_pro.jpg", "Szorty Pro", 28.00m, "shorts" },
-                    { 6, "Supplements", "kreatyna.jpg", "Kreatyna Monohydrat", 18.00m, "creatine" },
-                    { 7, "Supplements", "proteina.webp", "Białko WPC 80", 32.00m, "protein" },
-                    { 8, "Supplements", "bcaa.webp", "BCAA 2:1:1", 15.00m, "bcaa" },
-                    { 9, "Supplements", "kreatyn_jablczan.jpg", "Kreatyna Jabłczan", 20.00m, "creatine" },
-                    { 10, "Supplements", "bialko_isolate.webp", "Białko Isolate", 38.00m, "protein" }
+                    { 1, "Clothes", "tshirt.jpeg", "Men T-shirt", 25.00m, "tshirt" },
+                    { 2, "Clothes", "shorty.jpeg", "Szorty treningowe", 22.00m, "shorts" },
+                    { 3, "Clothes", "hudi.jpg", "Bluza z kapturem", 40.00m, "hoodie" },
+                    { 4, "Clothes", "tshirtz.jpeg", "Women T-shirt", 20.00m, "tshirt" },
+                    { 5, "Clothes", "szortyz.jpeg", "Women Szorty", 28.00m, "shorts" },
+                    { 6, "Supplements", "kreatyn.jpg", "Kreatyn", 18.00m, "creatine" },
+                    { 7, "Supplements", "protein.jpg", "Protein", 32.00m, "protein" },
+                    { 8, "Supplements", "bcaa.jpg", "BCAA 8:1:1", 15.00m, "bcaa" },
+                    { 9, "Supplements", "geiner.jpg", "Gainer", 20.00m, "protein" },
+                    { 10, "Supplements", "kolagen.jpg", "Kolagen", 38.00m, "bcaa" }
                 });
 
             migrationBuilder.CreateIndex(

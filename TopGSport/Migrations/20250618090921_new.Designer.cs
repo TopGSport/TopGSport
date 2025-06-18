@@ -12,7 +12,7 @@ using TopGSport.Database.Data;
 namespace TopGSport.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250528081246_new")]
+    [Migration("20250618090921_new")]
     partial class @new
     {
         /// <inheritdoc />
@@ -176,8 +176,8 @@ namespace TopGSport.Migrations
                         {
                             Id = 1,
                             Category = "Clothes",
-                            Img = "t-shirt-boss-boy.jpg",
-                            Name = "T-shirt BossBoy",
+                            Img = "tshirt.jpeg",
+                            Name = "Men T-shirt",
                             Price = 25.00m,
                             Type = "tshirt"
                         },
@@ -185,7 +185,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 2,
                             Category = "Clothes",
-                            Img = "szorty_treningowe.jpg",
+                            Img = "shorty.jpeg",
                             Name = "Szorty treningowe",
                             Price = 22.00m,
                             Type = "shorts"
@@ -194,7 +194,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 3,
                             Category = "Clothes",
-                            Img = "bluza_z_kapturem.jpg",
+                            Img = "hudi.jpg",
                             Name = "Bluza z kapturem",
                             Price = 40.00m,
                             Type = "hoodie"
@@ -203,8 +203,8 @@ namespace TopGSport.Migrations
                         {
                             Id = 4,
                             Category = "Clothes",
-                            Img = "t-shirt_classic.webp",
-                            Name = "T-shirt Classic",
+                            Img = "tshirtz.jpeg",
+                            Name = "Women T-shirt",
                             Price = 20.00m,
                             Type = "tshirt"
                         },
@@ -212,8 +212,8 @@ namespace TopGSport.Migrations
                         {
                             Id = 5,
                             Category = "Clothes",
-                            Img = "szorty_pro.jpg",
-                            Name = "Szorty Pro",
+                            Img = "szortyz.jpeg",
+                            Name = "Women Szorty",
                             Price = 28.00m,
                             Type = "shorts"
                         },
@@ -221,8 +221,8 @@ namespace TopGSport.Migrations
                         {
                             Id = 6,
                             Category = "Supplements",
-                            Img = "kreatyna.jpg",
-                            Name = "Kreatyna Monohydrat",
+                            Img = "kreatyn.jpg",
+                            Name = "Kreatyn",
                             Price = 18.00m,
                             Type = "creatine"
                         },
@@ -230,8 +230,8 @@ namespace TopGSport.Migrations
                         {
                             Id = 7,
                             Category = "Supplements",
-                            Img = "proteina.webp",
-                            Name = "Białko WPC 80",
+                            Img = "protein.jpg",
+                            Name = "Protein",
                             Price = 32.00m,
                             Type = "protein"
                         },
@@ -239,8 +239,8 @@ namespace TopGSport.Migrations
                         {
                             Id = 8,
                             Category = "Supplements",
-                            Img = "bcaa.webp",
-                            Name = "BCAA 2:1:1",
+                            Img = "bcaa.jpg",
+                            Name = "BCAA 8:1:1",
                             Price = 15.00m,
                             Type = "bcaa"
                         },
@@ -248,19 +248,19 @@ namespace TopGSport.Migrations
                         {
                             Id = 9,
                             Category = "Supplements",
-                            Img = "kreatyn_jablczan.jpg",
-                            Name = "Kreatyna Jabłczan",
+                            Img = "geiner.jpg",
+                            Name = "Gainer",
                             Price = 20.00m,
-                            Type = "creatine"
+                            Type = "protein"
                         },
                         new
                         {
                             Id = 10,
                             Category = "Supplements",
-                            Img = "bialko_isolate.webp",
-                            Name = "Białko Isolate",
+                            Img = "kolagen.jpg",
+                            Name = "Kolagen",
                             Price = 38.00m,
-                            Type = "protein"
+                            Type = "bcaa"
                         });
                 });
 

@@ -143,16 +143,16 @@
             );
 
             modelBuilder.Entity<Shop>().HasData(
-                new Shop { Id = 1, Name = "T-shirt BossBoy", Category = "Clothes", Type = "tshirt", Price = 25.00M, Img = "t-shirt-boss-boy.jpg" },
-                new Shop { Id = 2, Name = "Szorty treningowe", Category = "Clothes", Type = "shorts", Price = 22.00M, Img = "szorty_treningowe.jpg" },
-                new Shop { Id = 3, Name = "Bluza z kapturem", Category = "Clothes", Type = "hoodie", Price = 40.00M, Img = "bluza_z_kapturem.jpg" },
-                new Shop { Id = 4, Name = "T-shirt Classic", Category = "Clothes", Type = "tshirt", Price = 20.00M, Img = "t-shirt_classic.webp" },
-                new Shop { Id = 5, Name = "Szorty Pro", Category = "Clothes", Type = "shorts", Price = 28.00M, Img = "szorty_pro.jpg" },
-                new Shop { Id = 6, Name = "Kreatyna Monohydrat", Category = "Supplements", Type = "creatine", Price = 18.00M, Img = "kreatyna.jpg" },
-                new Shop { Id = 7, Name = "Białko WPC 80", Category = "Supplements", Type = "protein", Price = 32.00M, Img = "proteina.webp" },
-                new Shop { Id = 8, Name = "BCAA 2:1:1", Category = "Supplements", Type = "bcaa", Price = 15.00M, Img = "bcaa.webp" },
-                new Shop { Id = 9, Name = "Kreatyna Jabłczan", Category = "Supplements", Type = "creatine", Price = 20.00M, Img = "kreatyn_jablczan.jpg" },
-                new Shop { Id = 10, Name = "Białko Isolate", Category = "Supplements", Type = "protein", Price = 38.00M, Img = "bialko_isolate.webp" }
+                new Shop { Id = 1, Name = "Men T-shirt", Category = "Clothes", Type = "tshirt", Price = 25.00M, Img = "tshirt.jpeg" },
+                new Shop { Id = 2, Name = "Szorty treningowe", Category = "Clothes", Type = "shorts", Price = 22.00M, Img = "shorty.jpeg" },
+                new Shop { Id = 3, Name = "Bluza z kapturem", Category = "Clothes", Type = "hoodie", Price = 40.00M, Img = "hudi.jpg" },
+                new Shop { Id = 4, Name = "Women T-shirt", Category = "Clothes", Type = "tshirt", Price = 20.00M, Img = "tshirtz.jpeg" },
+                new Shop { Id = 5, Name = "Women Szorty", Category = "Clothes", Type = "shorts", Price = 28.00M, Img = "szortyz.jpeg" },
+                new Shop { Id = 6, Name = "Kreatyn", Category = "Supplements", Type = "creatine", Price = 18.00M, Img = "kreatyn.jpg" },
+                new Shop { Id = 7, Name = "Protein", Category = "Supplements", Type = "protein", Price = 32.00M, Img = "protein.jpg" },
+                new Shop { Id = 8, Name = "BCAA 8:1:1", Category = "Supplements", Type = "bcaa", Price = 15.00M, Img = "bcaa.jpg" },
+                new Shop { Id = 9, Name = "Gainer", Category = "Supplements", Type = "protein", Price = 20.00M, Img = "geiner.jpg" },
+                new Shop { Id = 10, Name = "Kolagen", Category = "Supplements", Type = "bcaa", Price = 38.00M, Img = "kolagen.jpg" }
             );
         }
 

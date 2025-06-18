@@ -585,8 +585,7 @@ footer {
         padding: 6px 32px 6px 12px;
     }
 }
-  }
-/* Іконка чату */
+
 .chat-icon {
     position: fixed;
     right: 32px;
@@ -615,12 +614,11 @@ footer {
         object-fit: cover;
     }
 
-/* Вікно чату */
 .chat-window {
     display: none;
     position: fixed;
     right: 32px;
-    bottom: 110px;
+    bottom: 110px; /* трохи вище іконки */
     width: 370px;
     height: 540px;
     background: #fff;
@@ -630,26 +628,47 @@ footer {
     padding: 0;
     overflow: hidden;
     flex-direction: column;
+    animation: chatOpen 0.25s;
 }
 
-    .chat-window.active {
-        display: flex;
+@keyframes chatOpen {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
     }
 
-/* Кнопка закриття */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-window.active {
+    display: flex;
+}
+
 .close-btn {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    background: transparent;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: #e63946;
     border: none;
-    font-size: 28px;
-    color: #888;
+    border-radius: 50%;
+    font-size: 2em;
+    color: #fff;
     cursor: pointer;
     z-index: 100001;
-    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #0003;
 }
 
     .close-btn:hover {
+        background: #fff;
         color: #e63946;
+        box-shadow: 0 4px 16px #e63946aa;
     }

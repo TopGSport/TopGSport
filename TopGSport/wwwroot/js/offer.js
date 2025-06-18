@@ -135,10 +135,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     </tr>
                 `;
         }).join('');
-
-
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.animate-slideup').forEach(function(el, i) {
+        document.querySelectorAll('.animate-slideup').forEach(function (el, i) {
             el.style.animationDelay = (0.1 * i) + 's';
         });
 
@@ -148,13 +145,14 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
         });
 
-        document.querySelectorAll('.animate-fadein').forEach(function(el, i) {
+        document.querySelectorAll('.animate-fadein').forEach(function (el, i) {
             el.style.animationDelay = (0.2 * i) + 's';
         });
-        document.querySelectorAll('.animate-zoom').forEach(function(el, i) {
+        document.querySelectorAll('.animate-zoom').forEach(function (el, i) {
             el.style.animationDelay = (0.15 * i) + 's';
         });
-    });
+
+    
     } catch (error) {
         console.error('Błąd podczas pobierania danych:', error);
         alert('Nie udało się załadować danych karnetów. Spróbuj ponownie później.');

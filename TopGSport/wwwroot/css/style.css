@@ -585,3 +585,71 @@ footer {
         padding: 6px 32px 6px 12px;
     }
 }
+  }
+/* Іконка чату */
+.chat-icon {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 24px #0002, 0 2px 8px #0005;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99999;
+    transition: box-shadow 0.2s;
+}
+
+    .chat-icon:hover {
+        box-shadow: 0 8px 32px #0003, 0 4px 16px #0007;
+    }
+
+    .chat-icon img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+/* Вікно чату */
+.chat-window {
+    display: none;
+    position: fixed;
+    right: 32px;
+    bottom: 110px;
+    width: 370px;
+    height: 540px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    z-index: 100000;
+    padding: 0;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+    .chat-window.active {
+        display: flex;
+    }
+
+/* Кнопка закриття */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    z-index: 100001;
+    transition: color 0.2s;
+}
+
+    .close-btn:hover {
+        color: #e63946;
+    }

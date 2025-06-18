@@ -147,7 +147,7 @@
                 new Shop { Id = 2, Name = "Szorty treningowe", Category = "Clothes", Type = "shorts", Price = 22.00M, Img = "shorty.jpeg" },
                 new Shop { Id = 3, Name = "Bluza z kapturem", Category = "Clothes", Type = "hoodie", Price = 40.00M, Img = "hudi.jpg" },
                 new Shop { Id = 4, Name = "Women T-shirt", Category = "Clothes", Type = "tshirt", Price = 20.00M, Img = "tshirtz.jpeg" },
-                new Shop { Id = 5, Name = "Women Szorty", Category = "Clothes", Type = "shorts", Price = 28.00M, Img = "szortyz.jpeg" },
+                new Shop { Id = 5, Name = "Women Szorty", Category = "Clothes", Type = "shorts", Price = 28.00M, Img = "szortyz1.jpeg" },
                 new Shop { Id = 6, Name = "Kreatyn", Category = "Supplements", Type = "creatine", Price = 18.00M, Img = "kreatyn.jpg" },
                 new Shop { Id = 7, Name = "Protein", Category = "Supplements", Type = "protein", Price = 32.00M, Img = "protein.jpg" },
                 new Shop { Id = 8, Name = "BCAA 8:1:1", Category = "Supplements", Type = "bcaa", Price = 15.00M, Img = "bcaa.jpg" },

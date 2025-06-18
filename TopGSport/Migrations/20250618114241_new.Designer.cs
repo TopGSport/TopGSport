@@ -12,7 +12,7 @@ using TopGSport.Database.Data;
 namespace TopGSport.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250618090921_new")]
+    [Migration("20250618114241_new")]
     partial class @new
     {
         /// <inheritdoc />
@@ -212,7 +212,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 5,
                             Category = "Clothes",
-                            Img = "szortyz.jpeg",
+                            Img = "szortyz1.jpeg",
                             Name = "Women Szorty",
                             Price = 28.00m,
                             Type = "shorts"

@@ -119,7 +119,7 @@ namespace TopGSport.Migrations
                     { 2, "Clothes", "shorty.jpeg", "Szorty treningowe", 22.00m, "shorts" },
                     { 3, "Clothes", "hudi.jpg", "Bluza z kapturem", 40.00m, "hoodie" },
                     { 4, "Clothes", "tshirtz.jpeg", "Women T-shirt", 20.00m, "tshirt" },
-                    { 5, "Clothes", "szortyz.jpeg", "Women Szorty", 28.00m, "shorts" },
+                    { 5, "Clothes", "szortyz1.jpeg", "Women Szorty", 28.00m, "shorts" },
                     { 6, "Supplements", "kreatyn.jpg", "Kreatyn", 18.00m, "creatine" },
                     { 7, "Supplements", "protein.jpg", "Protein", 32.00m, "protein" },
                     { 8, "Supplements", "bcaa.jpg", "BCAA 8:1:1", 15.00m, "bcaa" },

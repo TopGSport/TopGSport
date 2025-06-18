@@ -209,7 +209,7 @@ namespace TopGSport.Migrations
                         {
                             Id = 5,
                             Category = "Clothes",
-                            Img = "szortyz.jpeg",
+                            Img = "szortyz1.jpeg",
                             Name = "Women Szorty",
                             Price = 28.00m,
                             Type = "shorts"

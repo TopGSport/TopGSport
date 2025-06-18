@@ -23,7 +23,7 @@ const translations = {
         error_purchase: "Błąd zakupu!",
         error_server: "Błąd serwera. Spróbuj ponownie później.",
         success_purchase: "Zakup udany! Numer karnetu:",
-        success_instruction: "Instrukcja: Przyjdź do recepcji z tym numerem i dokumentem tożsamości.",
+        success_instruction: "Instrukcja: Przyjdź do recepcji, Twoje dane i wybrany karnet są już w bazie. Podaj swój adres e-mail, a obsługa zweryfikuje zakup. Płatność za karnet dokonasz na miejscu.",
         error_loading: "Błąd ładowania danych karnetu. Spróbuj ponownie później."
     },
     en: {
@@ -50,7 +50,7 @@ const translations = {
         error_purchase: "Purchase error!",
         error_server: "Server error. Please try again later.",
         success_purchase: "Purchase successful! Membership number:",
-        success_instruction: "Instructions: Come to reception with this number and ID document.",
+        success_instruction: "Instructions: Come to the reception, your details and selected membership are already in the system. Provide your email address, the staff will verify your purchase. You will pay for the membership on site.",
         error_loading: "Error loading membership data. Please try again later."
     }
 };
@@ -185,14 +185,14 @@ document.getElementById('buy-form').onsubmit = async function (e) {
         });
 
         const result = await response.json();
-
+        
         if (!response.ok) {
             msg.textContent = result.message || translations[lang]['error_purchase'];
             return;
         }
 
         msg.style.color = "#4caf50";
-        msg.innerHTML = `${translations[lang]['success_purchase']} <b>${result.cardNumber}</b><br>${translations[lang]['success_instruction']}`;
+        msg.innerHTML = `${translations[lang]['success_purchase']} <b>${karId}</b><br>${translations[lang]['success_instruction']}`;
         document.getElementById('buy-form').reset();
 
     } catch (error) {
